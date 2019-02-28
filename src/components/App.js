@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Header from "./Header";
+import Header from "./header/Header";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
