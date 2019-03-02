@@ -1,45 +1,39 @@
 :root {
   --black: #2b2b2b;
   --white: #ffffff;
-  --grey1: #ebebeb;
+  --grey1: #f1f1f1;
   --grey2: #9f9f9f;
   --grey3: #6b6b6b;
   --grey4: #363636;
+  --transparent-white: rgba(253, 253, 253, 0.89);
   --border-grey2: 0.5px solid var(--grey2);
   --border-grey3: 0.5px solid var(--grey3);
+  font-size: 10px;
+  --btn-scale: 1.2;
 }
 body,
 * {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-family: "Abel", sans-serif;
   color: var(--black);
-  font-size: 14px;
-  font-family: "Work Sans", sans-serif;
+  font-size: 1.8rem;
+  /* font-family: 'Playfair Display', serif;
+font-family: 'Montserrat', sans-serif; */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .heading1 {
   font-family: "Playfair Display", serif;
   font-weight: 900i;
-  font-size: 30px;
+  font-size: 3.2rem;
   color: var(--grey4);
 }
-.shop-now-btn {
-  font-size: 14px;
-  text-decoration: none;
-  border: var(--border-grey3);
-  height: 36px;
-  width: 180px;
-  display: inline-block;
-  line-height: 36px;
-  color: var(--grey4);
-  padding-left: 20px;
-}
-
+/* ********************************************************************** */
 .container {
-  width: 85%;
+  width: 90%;
+  max-width: 1600px;
   text-align: center;
   margin: 0 auto;
 }
@@ -49,21 +43,103 @@ body,
   align-items: center;
 }
 
-/* Header */
-nav {
+/* ******************************** BUTTONS START ****************************** */
+/* ----- Shop Now Button ----- */
+.btn {
+  font-size: calc(14px * var(--btn-scale));
+  text-decoration: none;
+  border: var(--border-grey3);
+  height: calc(36px * var(--btn-scale));
+  width: calc(160px * var(--btn-scale));
+  display: inline-block;
+  line-height: calc(36px * var(--btn-scale));
+  position: relative;
+}
+.shop-now-btn {
+  color: var(--grey4);
+  padding-left: calc(28px * var(--btn-scale));
+}
+.shop-now-btn .arrow {
+  width: 26px;
+  height: 12px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  position: relative;
+  left: calc(20px * var(--btn-scale));
+  transition: left 0.7s, opacity 0.7s;
+}
+.hover-fill {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2%;
+  height: 100%;
+  content: "";
+  z-index: -1;
+  transition: width 0.4s ease-out;
+}
+.hover-fill-shop {
+  background-color: var(--grey1);
+}
+.shop-now-btn:hover {
+  border: var(--border-grey2);
+}
+.shop-now-btn:hover .arrow {
+  left: calc(40px * var(--btn-scale));
+  opacity: 0.4;
+  transition: 0.7s;
+}
+.shop-now-btn:hover .hover-fill {
+  position: absolute;
+  left: 0;
   width: 100%;
-  padding: 10px 0;
-  border-bottom: var(--border-grey2);
+  right: 0;
 }
 
-.logo {
-  display: inline-block;
-  height: 14px;
-  width: 80px;
+.shop-now-btn:active {
+  padding-left: calc(60px * var(--btn-scale));
+  transition: padding-left 0.3s;
 }
 
-.nav-icon {
-  display: inline-block;
-  width: 13px;
-  margin: 0 20px 0 10px;
+/* ----- Add to Cart Button ----- */
+.add-cart-btn {
+  background-color: var(--grey4);
+  border: none;
+  transition: background-color 0.3s;
+  width: calc(160px * var(--btn-scale));
 }
+.add-cart-btn .btn-content {
+  color: var(--grey1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.add-cart-btn:hover {
+  background-color: var(--grey3);
+}
+.hover-fill-cart {
+  background-color: var(--grey2);
+  z-index: 3;
+  opacity: 0;
+}
+.add-cart-btn:hover .hover-fill-cart {
+  animation: hover-btn 5600ms infinite ease-in-out;
+}
+@keyframes hover-btn {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.3;
+    width: 100%;
+  }
+  100% {
+    opacity: 0;
+    width: 2%;
+  }
+}
+
+/* ******************************** BUTTONS END ****************************** */

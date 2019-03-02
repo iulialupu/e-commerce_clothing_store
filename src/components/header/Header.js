@@ -3,34 +3,55 @@ import { Link } from "react-router-dom";
 
 import "./Header.css";
 import logo from "../../img/logo.svg";
+import logoBig from "../../img/logoBig.svg";
 import heart from "../../img/heart.svg";
 import bag from "../../img/bag.svg";
+import IconLink from "./IconLink";
+
+import Submenu from "./Submenu";
+import { ListOfCategories, ListOfCollections } from "../variables";
 
 function Header() {
   return (
-    <nav>
-      <div className="container">
-        <div className="flex-center">
-          <Link to="/" className="logo">
-            <img src={logo} alt="E-apparel Logo" />
-          </Link>
-          <div className="wishlist-and-cart-wrapper">
-            <Link to="/wishlist">
-              <div className="nav-icon wishlist">
-                <img src={heart} alt="wishlist icon" />
-                <span className="w-and-c-amount" />
-              </div>
+    <>
+      <nav className="nav-big">
+        <div className="container">
+          <div className="flex-center">
+            <Link to="/" className="logo">
+              <img src={logo} alt="E-apparel Logo" />
             </Link>
-            <Link to="/cart">
-              <div className="nav-icon cart">
-                <img src={bag} alt="shopping cart icon" />
-                <span className="w-and-c-amount" />
+
+            <div className="nav-center">
+              <div className="logo-big">
+                <img src={logoBig} alt="E-apparel Logo" />
               </div>
-            </Link>
+
+              <ul className="nav-menu flex-center">
+                <li>
+                  <Link to="/products">New Arrivals</Link>
+                </li>
+
+                <li>
+                  <Link to="/products">Shop</Link>
+                </li>
+
+                <li>
+                  <Link to="/products">Collections</Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="wishlist-and-cart-wrapper">
+              <IconLink link="wishlist" src={heart} alt="wishlist icon" />
+              <IconLink link="cart" src={bag} alt="shopping cart icon" />
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <Submenu submenuItems={ListOfCategories} />
+      <Submenu submenuItems={ListOfCollections} />
+    </>
   );
 }
 
