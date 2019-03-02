@@ -61,7 +61,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", minHeight: "190px" }}>
+      <div style={{ position: "relative", minHeight: "23vh" }}>
         <nav className={this.state.isScrolled ? "nav-small" : "nav-big"}>
           <div className="container">
             <div className="flex-center">
@@ -71,7 +71,9 @@ class Header extends React.Component {
 
               <div className="nav-center">
                 <div className="logo-big">
-                  <img src={logoBig} alt="E-apparel Logo" />
+                  <Link to="/">
+                    <img src={logoBig} alt="E-apparel Logo" />
+                  </Link>
                 </div>
 
                 <ul className="nav-menu flex-center">

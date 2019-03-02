@@ -1,0 +1,24 @@
+.first-screen {
+  height: 70vh;
+  margin: 0 50px 6vh 0;
+}
+.promo-image {
+  height: 60vh;
+  width: 75vw;
+  display: inline-block;
+}
+.promo-image img {
+  max-width: 100%;
+}
+.first-screen-text-wrapper {
+  max-width: 22vw;
+  display: inline-block;
+  position: relative;
+  top: 4vh;
+  left: -60px;
+  background-color: var(--transparent-white);
+  padding: 32px 40px;
+}
+.first-screen-text-wrapper .shop-now-btn {
+  margin-top: 10px;
+}

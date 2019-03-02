@@ -17,7 +17,7 @@ body,
   padding: 0;
   font-family: "Abel", sans-serif;
   color: var(--black);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   /* font-family: 'Playfair Display', serif;
 font-family: 'Montserrat', sans-serif; */
 
@@ -27,8 +27,12 @@ font-family: 'Montserrat', sans-serif; */
 .heading1 {
   font-family: "Playfair Display", serif;
   font-weight: 900i;
-  font-size: 3.2rem;
+  font-size: 2.6rem;
   color: var(--grey4);
+  padding-bottom: 1rem;
+}
+p {
+  padding-bottom: 1.2rem;
 }
 /* ********************************************************************** */
 .container {
@@ -66,6 +70,7 @@ font-family: 'Montserrat', sans-serif; */
   background-repeat: no-repeat;
   position: relative;
   left: calc(20px * var(--btn-scale));
+  top: calc(1px * var(--btn-scale));
   transition: left 0.7s, opacity 0.7s;
 }
 .hover-fill {
@@ -87,9 +92,8 @@ font-family: 'Montserrat', sans-serif; */
   border: var(--border-grey2);
 }
 .shop-now-btn:hover .arrow {
-  left: calc(40px * var(--btn-scale));
-  opacity: 0.4;
-  transition: 0.7s;
+  left: calc(45px * var(--btn-scale));
+  opacity: 0.3;
 }
 .shop-now-btn:hover .hover-fill {
   position: absolute;
