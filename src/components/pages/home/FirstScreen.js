@@ -1,7 +1,7 @@
 import React from "react";
 
-import image from "../../img/promo.jpg";
-import ShopNowBtn from "../ShopNowBtn";
+import image from "../../../img/promo.jpg";
+import ShopNowBtn from "../../ShopNowBtn";
 
 const FirstScreen = () => {
   return (

@@ -5,9 +5,9 @@ function Submenu(props) {
   const { submenuItems } = props;
 
   const renderSubmenu = () => {
-    return submenuItems.map(item => {
+    return submenuItems.map((item, index) => {
       return (
-        <li>
+        <li key={index}>
           <Link to="/products">{item}</Link>
         </li>
       );
