@@ -7,16 +7,20 @@
   height: 60vh;
   width: 75vw;
   display: inline-block;
+  position: relative;
 }
 .promo-image img {
   max-width: 100%;
+  position: absolute;
+  left: 0;
 }
 .first-screen-text-wrapper {
   max-width: 22vw;
   display: inline-block;
   position: relative;
   top: 4vh;
-  left: -60px;
+  right: 0;
+  margin-left: -60px;
   background-color: var(--transparent-white);
   padding: 32px 40px;
 }

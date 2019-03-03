@@ -9,6 +9,7 @@ nav {
 /* Toglle between nav-small and nav-big on scroll */
 .nav-small {
   position: fixed;
+  z-index: 200;
 }
 .nav-big {
   height: 20vh;

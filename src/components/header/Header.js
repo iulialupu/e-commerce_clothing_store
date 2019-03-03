@@ -41,27 +41,9 @@ class Header extends React.Component {
     }
   }
 
-  // const [isScrolled, setIsScrolled] = useState(false);
-  // let navigation = React.createRef();
-
-  // console.log(navigation.current);
-
-  // useEffect(() => {
-  //   navigation.current.addEventListener('scroll', handleScroll);
-  //   return () => navigation.current.removeEventListener('scroll', handleScroll);
-  // })
-
-  // function handleScroll() {
-  //   if (navigation.current.scrollY > 60) {
-  //     console.log('scrolled');
-  //     setIsScrolled = true;
-  //   } else {
-  //     setIsScrolled = false
-  //   }
-
   render() {
     return (
-      <div style={{ position: "relative", minHeight: "23vh" }}>
+      <div style={{ position: "relative", minHeight: "30vh" }}>
         <nav className={this.state.isScrolled ? "nav-small" : "nav-big"}>
           <div className="container">
             <div className="flex-center">
