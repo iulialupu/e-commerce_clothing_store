@@ -1,13 +1,17 @@
 import React from "react";
 
-// import ShopNowBtn from "../../ShopNowBtn";
-import FirstScreen from "./FirstScreen";
 import "./Home.css";
+
+import FirstScreen from "./FirstScreen";
+import NewArrivalsSection from "./NewArrivalsSection";
+import SpringCollectionSection from "./SpringCollectionSection";
 
 function Home() {
   return (
     <main>
       <FirstScreen />
+      <SpringCollectionSection />
+      <NewArrivalsSection />
     </main>
   );
 }
