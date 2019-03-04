@@ -93,3 +93,28 @@
   grid-area: btn;
   align-self: start;
 }
+
+/* ************** Products Slider Section **************** */
+.products-slider {
+  max-width: 1250px;
+  margin: auto;
+}
+.home-product-card {
+  max-width: 250px;
+  display: inline-block;
+  padding: 15px;
+  text-align: center;
+}
+
+.home-product-card img {
+  max-width: 100%;
+  height: auto;
+}
+.home-product-card .btn {
+  visibility: hidden;
+}
+.home-product-card:hover .btn {
+  visibility: visible;
+}
+
+/* ************** Newsletter Section **************** */

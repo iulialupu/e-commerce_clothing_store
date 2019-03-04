@@ -19,12 +19,8 @@ class Parallax extends React.Component {
     this.setState({ scroll: window.scrollY });
   }
   componentDidUpdate() {
-    console.log("scroll", this.state.scroll);
     this.props.childRef.current.style[this.props.stylePropriety] = `${this.state
       .scroll * this.props.speed}px`;
-
-    console.log(React.Children.count(this.props.children));
-    console.log("childref", this.props.childRef.current);
   }
 
   componentWillUnmount() {
