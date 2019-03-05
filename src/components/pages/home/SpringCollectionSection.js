@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import ShopNowBtn from "../../ShopNowBtn";
+import Parallax from "./Parallax";
 
 function NewCollectionsSection() {
+  const image = useRef(null);
   return (
     <section className="spring-collection">
       <div className="container">
         <div className="spring-collection-grid">
+          <Parallax stylePropriety="top" speed={0.25} childRef={image}>
+            <img
+              ref={image}
+              src="https://d0.static.media.condenast.ru/vogue/c1f312808a0c76f72898adb4c7ab35b4.jpg/685913cb/o/w2000"
+              alt="Spring 2019 Collection"
+            />
+          </Parallax>
           <img
-            src="https://i.pinimg.com/originals/7f/40/64/7f4064a95c618385df50cac70f7c57ec.jpg"
-            alt="Spring 2019 Collection"
-          />
-          <img
-            src="https://www.designscene.net/wp-content/uploads/2018/04/Gigi-Hadid-Vogue-Eyewear-SS18-01.jpg"
+            src="https://d5.static.media.condenast.ru/vogue/a6af7991972e51e5e12ae273d22923d7.jpg/23986b24/o/w2000"
             alt="Spring 2019 Collection"
           />
           <h2>Spring Collection 2019</h2>

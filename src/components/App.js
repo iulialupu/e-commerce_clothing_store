@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
+import Footer from "./footer/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/wishlist" exact component={Wishlist} />
           <Route path="/cart" exact component={Cart} />
         </Switch>
+        <Footer />
       </>
     </BrowserRouter>
   );

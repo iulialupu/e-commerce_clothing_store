@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 
-import CarouselProductItem from "./CarouselProductItem";
 import ShopNowBtn from "../../ShopNowBtn";
 
 function ProductSlider(props) {
@@ -16,7 +15,6 @@ function ProductSlider(props) {
     focusOnSelect: true,
     easing: "ease-out"
   };
-  console.log(document.documentElement.clientWidth);
 
   return (
     <section className="products-slider">

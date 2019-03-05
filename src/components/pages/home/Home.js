@@ -7,6 +7,7 @@ import NewArrivalsSection from "./NewArrivalsSection";
 import SpringCollectionSection from "./SpringCollectionSection";
 import ProductSlider from "./ProductsSlider";
 import { ListOfCategories, ListOfImageUrls } from "../../variables";
+import Newsletter from "./Newsletter";
 
 function Home() {
   console.log(ListOfCategories);
@@ -21,6 +22,7 @@ function Home() {
         listOfImageUrls={ListOfImageUrls}
         listofCategories={ListOfCategories}
       />
+      <Newsletter />
     </main>
   );
 }
