@@ -43,7 +43,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", minHeight: "30vh" }}>
+      <div style={{ position: "relative", minHeight: "25vh" }}>
         <nav className={this.state.isScrolled ? "nav-small" : "nav-big"}>
           <div className="container">
             <div className="flex-center">

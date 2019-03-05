@@ -4,11 +4,18 @@ import Parallax from "./Parallax";
 
 function NewCollectionsSection() {
   const image = useRef(null);
+  const parent = useRef();
+
   return (
     <section className="spring-collection">
       <div className="container">
-        <div className="spring-collection-grid">
-          <Parallax stylePropriety="top" speed={0.25} childRef={image}>
+        <div className="spring-collection-grid" ref={parent}>
+          <Parallax
+            stylePropriety="top"
+            speed={0.1}
+            childRef={image}
+            parentRef={parent}
+          >
             <img
               ref={image}
               src="https://d0.static.media.condenast.ru/vogue/c1f312808a0c76f72898adb4c7ab35b4.jpg/685913cb/o/w2000"
