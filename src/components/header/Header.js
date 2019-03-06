@@ -34,7 +34,7 @@ class Header extends React.Component {
   }
 
   handleScroll() {
-    if (window.scrollY > 110) {
+    if (window.scrollY > 100) {
       this.setState({ isScrolled: true });
     } else {
       this.setState({ isScrolled: false });
@@ -43,7 +43,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", minHeight: "25vh" }}>
+      <div className="nav-wrapper">
         <nav className={this.state.isScrolled ? "nav-small" : "nav-big"}>
           <div className="container">
             <div className="flex-center">

@@ -17,21 +17,28 @@ class Parallax extends React.Component {
     window.addEventListener("scroll", this.handleScroll);
   }
   handleScroll() {
-    this.setState({ scroll: window.pageYOffset });
-    const parentOffset = this.props.parentRef.current.offsetTop
-      ? this.props.parentRef.current.offsetTop
-      : null;
-    const parentOffsetHeight = this.props.parentRef.current.offsetHeight
-      ? this.props.parentRef.current.offsetHeight
-      : null;
-    const insideParentScroll = this.state.scroll - parentOffset;
+    const w =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+    // Check the width of the screen to disable parallax on devices with width < 460px
+    if (w > 460) {
+      this.setState({ scroll: window.pageYOffset });
+      const parentOffset = this.props.parentRef.current.offsetTop
+        ? this.props.parentRef.current.offsetTop
+        : null;
+      const parentOffsetHeight = this.props.parentRef.current.offsetHeight
+        ? this.props.parentRef.current.offsetHeight
+        : null;
+      const insideParentScroll = this.state.scroll - parentOffset;
 
-    if (
-      this.state.scroll >= parentOffset &&
-      this.state.scroll <= parentOffsetHeight
-    ) {
-      this.setState({ insideParentScroll });
-      console.log("inside", parentOffsetHeight);
+      if (
+        this.state.scroll >= parentOffset &&
+        this.state.scroll <= parentOffsetHeight
+      ) {
+        this.setState({ insideParentScroll });
+      }
+      return;
     }
     return;
   }
@@ -45,7 +52,6 @@ class Parallax extends React.Component {
   }
 
   render() {
-    console.log(this.props.parentRef);
     return <>{this.props.children}</>;
   }
 }

@@ -1,4 +1,13 @@
+.text-box {
+  max-width: 22vw;
+  background-color: var(--transparent-white);
+  padding: 32px 40px;
+}
+
+/* ************** First Screen Section **************** */
 .first-screen {
+  width: 100%;
+  overflow-x: hidden;
   height: 70vh;
   margin: 0 50px 6vh 0;
   padding: 0 0 60px 0;
@@ -14,50 +23,18 @@
   position: absolute;
   left: 0;
 }
-.first-screen-text-wrapper {
-  max-width: 22vw;
+
+.first-screen .text-box {
   display: inline-block;
   position: relative;
   top: 4vh;
   right: 0;
   margin-left: -60px;
-  background-color: var(--transparent-white);
-  padding: 32px 40px;
 }
 .first-screen-text-wrapper .shop-now-btn {
   margin-top: 10px;
 }
 
-/* ************** New Arrivals Section **************** */
-.new-arrivals-grid {
-  display: grid;
-  grid-template-areas:
-    ". img img img"
-    "h2 img img img"
-    "p  img img img"
-    ".  btn .    .";
-  grid-template-rows: 2fr 2fr 2fr 1fr;
-  grid-template-columns: 20vw 1fr 1fr 1fr;
-  grid-gap: 28px;
-}
-.new-arrivals-grid img {
-  grid-area: img;
-  max-height: 70vh;
-  width: auto;
-}
-.new-arrivals-grid h2 {
-  grid-area: h2;
-  text-align: right;
-  align-self: end;
-}
-.new-arrivals-grid p {
-  grid-area: p;
-  text-align: right;
-}
-.new-arrivals-grid .shop-now-btn {
-  grid-area: btn;
-  text-align: left;
-}
 /* ************** Spring Collection Section **************** */
 .spring-collection-grid {
   display: grid;
@@ -94,10 +71,40 @@
   grid-area: btn;
   align-self: start;
 }
+/* ************** New Arrivals Section **************** */
+.new-arrivals-grid {
+  display: grid;
+  grid-template-areas:
+    ". img img img"
+    "h2 img img img"
+    "p  img img img"
+    ".  btn .    .";
+  grid-template-rows: 2fr 2fr 2fr 1fr;
+  grid-template-columns: 20vw 1fr 1fr 1fr;
+  grid-gap: 28px;
+}
+.new-arrivals-grid img {
+  grid-area: img;
+  max-height: 70vh;
+  width: auto;
+}
+.new-arrivals-grid h2 {
+  grid-area: h2;
+  text-align: right;
+  align-self: end;
+}
+.new-arrivals-grid p {
+  grid-area: p;
+  text-align: right;
+}
+.new-arrivals-grid .shop-now-btn {
+  grid-area: btn;
+  text-align: left;
+}
 
 /* ************** Products Slider Section **************** */
 .products-slider {
-  max-width: 1250px;
+  max-width: 1650px;
   margin: auto;
 }
 .home-product-card {
@@ -163,4 +170,128 @@
 }
 .newsletter-form button:hover {
   background: #e9e9e9;
+}
+
+/* ############################################## MEDIA QUERIS ###################################### */
+/* -------------------------------------------------------  < 1240px ----- */
+@media only screen and (max-width: 1240px) {
+  :root {
+    font-size: 9px;
+  }
+}
+
+/* ---------------------------------------------------------  < 768px ----- */
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+/* ---------------------------------------------------------  < 480px ----- */
+@media only screen and (max-width: 480px) {
+  :root {
+    font-size: 7px;
+  }
+  .text-box {
+    max-width: 80vw;
+    padding: 20px 26px;
+  }
+  /* ************** First Screen Section | < 480 **************** */
+  .first-screen.flex-center {
+    flex-direction: column;
+  }
+  .first-screen {
+    height: auto;
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+  }
+  .promo-image {
+    height: auto;
+    width: 100%;
+    display: block;
+    position: static;
+  }
+  .promo-image img {
+    max-width: 100%;
+    position: static;
+    left: auto;
+    top: auto;
+  }
+  .first-screen .text-box {
+    display: block;
+    position: static;
+    margin-left: 0;
+    background-color: var(--transparent-white);
+  }
+  /* ************ Spring Collection Section | < 480px ************** */
+  .spring-collection-grid {
+    grid-template-areas:
+      "img1  img2"
+      "h2  h2"
+      "p  p"
+      "btn  btn";
+    grid-template-rows: auto 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    text-align: left;
+    max-width: auto;
+    margin: auto;
+  }
+  .spring-collection-grid img:first-child {
+    grid-area: img1;
+    max-height: 60vh;
+    max-width: 100%;
+    width: auto;
+    position: static;
+  }
+  .spring-collection-grid img:nth-child(2) {
+    grid-area: img2;
+    max-width: 100%;
+    max-height: 60vh;
+  }
+  .spring-collection-grid h2 {
+    grid-area: h2;
+    align-self: end;
+  }
+  .spring-collection-grid p {
+    grid-area: p;
+  }
+  .spring-collection-grid .shop-now-btn {
+    grid-area: btn;
+    align-self: start;
+  }
+
+  /* ************** New Arrivals Section | < 480 **************** */
+  .new-arrivals-grid {
+    grid-template-areas:
+      "img"
+      "text";
+    grid-template-rows: auto auto;
+    grid-template-columns: 100%;
+    grid-gap: 0;
+  }
+  .new-arrivals-grid img {
+    grid-area: img;
+    height: auto;
+    width: 100%;
+  }
+  .new-arrivals-grid .text-box {
+    grid-area: text;
+    text-align: left;
+  }
+  .new-arrivals-grid h2,
+  .new-arrivals-grid p {
+    text-align: left;
+  }
+  /* ************** Newsletter Section | < 480 **************** */
+  .newsletter-form {
+    padding: 30px;
+  }
+}
+
+/* --------------------------------------------------------  > 1700px ----- */
+@media only screen and (min-width: 480px) {
+  :root {
+    font-size: 11px;
+  }
 }

@@ -32,7 +32,7 @@ class FirstScreen extends React.Component {
           childRef={this.text}
           parentRef={this.parent}
         >
-          <div ref={this.text} className="first-screen-text-wrapper">
+          <div ref={this.text} className="text-box">
             <h1 className="heading1">
               We Create clothes, but you create yourself
             </h1>

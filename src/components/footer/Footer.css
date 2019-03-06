@@ -17,6 +17,7 @@
 .footer-content ul li a {
   font-size: 1.2rem;
   color: var(--grey1);
+  text-decoration: none;
 }
 .footer-content ul li a:hover {
   color: var(--white);
@@ -42,4 +43,35 @@
   border-top: dotted 3px var(--grey1);
   margin: auto;
   margin-bottom: 26px;
+}
+
+/* ************************************ MEDIA QUERIS *********************************** */
+/* -----  < 1240px ----- */
+@media only screen and (max-width: 1240px) {
+}
+
+/* -----  < 768px ----- */
+@media only screen and (max-width: 768px) {
+}
+
+/* -----  < 480px ----- */
+@media only screen and (max-width: 480px) {
+  .main-footer {
+    background: var(--grey4);
+    padding: 40px 30px 40px 30px;
+  }
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: var(--grey1);
+  }
+  .footer-content div {
+    min-width: 90px;
+    padding: 20px 0;
+  }
+}
+
+/* -----  > 1700px ----- */
+@media only screen and (min-width: 480px) {
 }

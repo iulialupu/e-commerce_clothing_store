@@ -5,12 +5,13 @@
   --grey2: #9f9f9f;
   --grey3: #6b6b6b;
   --grey4: #363636;
-  --transparent-white: rgba(253, 253, 253, 0.89);
+  --transparent-white: rgba(253, 253, 253, 0.932);
   --border-grey2: 0.5px solid var(--grey2);
   --border-grey3: 0.5px solid var(--grey3);
   font-size: 10px;
   --btn-scale: 1.2;
 }
+
 body,
 * {
   margin: 0;
@@ -54,11 +55,11 @@ p {
 
 /* ********************************************************************** */
 section {
-  padding: 80px 20px;
+  padding: 80px 0;
 }
 .container {
   width: 90%;
-  max-width: 1600px;
+  /* max-width: 1600px; */
   margin: 0 auto;
 }
 .flex-center {
@@ -172,3 +173,46 @@ section {
 }
 
 /* ******************************** BUTTONS END ****************************** */
+
+/* ************************************ MEDIA QUERIS *********************************** */
+/* -----  < 1240px ----- */
+@media only screen and (max-width: 1240px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+/* -----  < 768px ----- */
+@media only screen and (max-width: 768px) {
+  :root {
+    --btn-scale: 1.1;
+    font-size: 9px;
+  }
+  .container {
+    width: 95%;
+  }
+  section {
+    padding: 60px 0;
+  }
+}
+
+/* -----  < 480px ----- */
+@media only screen and (max-width: 480px) {
+  :root {
+    --btn-scale: 1;
+    font-size: 8px;
+  }
+  .container {
+    width: 92%;
+  }
+  section {
+    padding: 30px 0;
+  }
+}
+
+/* -----  > 1700px ----- */
+@media only screen and (min-width: 480px) {
+  :root {
+    font-size: 11px;
+  }
+}

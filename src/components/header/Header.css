@@ -1,18 +1,24 @@
 /* Header */
-
+.nav-wrapper {
+  position: relative;
+  min-height: 12rem;
+  overflow: hidden;
+}
 nav {
   width: 100%;
   padding: 12px 0;
   /* border-bottom: var(--border-grey2); */
   background-color: var(--transparent-white);
 }
+
 /* Toglle between nav-small and nav-big on scroll */
 .nav-small {
   position: fixed;
   z-index: 200;
+  box-shadow: 0, 2, 3, 4, rgba(0, 0, 0, 0.21);
 }
 .nav-big {
-  height: 20vh;
+  height: 10rem;
 }
 .nav-small .logo-big {
   display: none;
@@ -27,32 +33,34 @@ nav {
 /* Logo left */
 .logo {
   display: inline-block;
-  height: 20px;
-  width: 100px;
+  height: 2rem;
+  width: 10rem;
   color: var(--grey4);
 }
 
 /* Center */
 .nav-center {
-  max-width: 70vw;
+  min-width: 40rem;
 }
 .logo-big {
   display: block;
   width: 30%;
-  max-width: 200px;
-  margin: 0 auto 4px;
+  max-width: 100px;
+  margin: 0 auto 5px;
 }
 .nav-menu {
   width: 100%;
+  display: flex;
+  align-items: space-between;
 }
 .nav-menu li {
   display: inline-block;
   list-style-type: none;
-  margin: 0 4rem;
 }
 .nav-menu li a {
   text-decoration: none;
   color: var(--grey3);
+  margin: 0.5rem;
 }
 .nav-menu li:hover a {
   color: var(--grey4);
@@ -87,13 +95,16 @@ nav {
 }
 
 /*  Nav Icons on the right */
+.wishlist-and-cart-wrapper {
+  float: right;
+}
 .nav-icon {
-  margin: 0 0 0 26px;
+  margin: 0 0 0 2.6rem;
   display: inline-block;
   position: relative;
 }
 .nav-icon img {
-  height: 18px;
+  height: 1.8rem;
   position: absolute;
   top: 2px;
   transition: opacity 0.7s;
@@ -103,8 +114,49 @@ nav {
 }
 
 .nav-icon span.w-and-c-amount {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 1.4rem;
+  line-height: 2rem;
   color: var(--grey3);
-  margin: 0 0 0 24px;
+  margin: 0 0 0 2.3rem;
+}
+
+/* ************************************ MEDIA QUERIS *********************************** */
+/* -----  < 1240px ----- */
+@media only screen and (max-width: 1240px) {
+}
+
+/* -----  < 768px ----- */
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+/* -----  < 480px ----- */
+@media only screen and (max-width: 480px) {
+  .logo {
+    display: inline-block;
+    height: 1.6rem;
+    width: 8rem;
+    color: var(--grey4);
+  }
+  .logo-big {
+    width: 40%;
+    margin: 0 auto 10px;
+  }
+  .nav-icon {
+    margin: 0 0 0 12px;
+    display: inline-block;
+  }
+  .nav-center {
+    max-width: 70vw;
+    min-width: 10rem;
+  }
+}
+
+/* -----  > 1700px ----- */
+@media only screen and (min-width: 480px) {
+  :root {
+    font-size: 11px;
+  }
 }
