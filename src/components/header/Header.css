@@ -17,11 +17,12 @@ nav {
   z-index: 200;
   box-shadow: 0, 2, 3, 4, rgba(0, 0, 0, 0.21);
 }
-.nav-big {
-  height: 10rem;
-}
 .nav-small .logo-big {
   display: none;
+}
+
+.nav-big {
+  height: 10rem;
 }
 .nav-big .logo {
   visibility: hidden;
@@ -35,7 +36,6 @@ nav {
   display: inline-block;
   height: 2rem;
   width: 10rem;
-  color: var(--grey4);
 }
 
 /* Center */
@@ -70,7 +70,6 @@ nav {
 }
 
 /* Submenu */
-
 .submenu {
   position: absolute;
   z-index: 20;
@@ -120,25 +119,27 @@ nav {
   margin: 0 0 0 2.3rem;
 }
 
-/* ************************************ MEDIA QUERIS *********************************** */
-/* -----  < 1240px ----- */
+/* ######################################### MEDIA QUERIS #################################### */
+/* ------------------------------------------------------  < 1240px ----- */
 @media only screen and (max-width: 1240px) {
 }
 
-/* -----  < 768px ----- */
+/* ------------------------------------------------------  < 768px ----- */
 @media only screen and (max-width: 768px) {
   :root {
     font-size: 8px;
   }
+  .logo {
+    height: 1.4rem;
+    width: 7rem;
+  }
 }
 
-/* -----  < 480px ----- */
+/* ------------------------------------------------------  < 480px ----- */
 @media only screen and (max-width: 480px) {
   .logo {
-    display: inline-block;
-    height: 1.6rem;
-    width: 8rem;
-    color: var(--grey4);
+    height: 1.2rem;
+    width: 6rem;
   }
   .logo-big {
     width: 40%;
@@ -154,7 +155,7 @@ nav {
   }
 }
 
-/* -----  > 1700px ----- */
+/* ------------------------------------------------------  > 1700px ----- */
 @media only screen and (min-width: 480px) {
   :root {
     font-size: 11px;
