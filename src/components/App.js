@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Header from "./header/Header";
-import Home from "./pages/home/Home";
-import Products from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails";
-import Wishlist from "./pages/Wishlist";
-import Cart from "./pages/Cart";
+import Home from "./pages/home/";
+import Products from "./pages/products";
+import ProductDetails from "./pages/productDetails";
+import Wishlist from "./pages/wishlist";
+import Cart from "./pages/cart";
 import Footer from "./footer/Footer";
 
 const App = () => {
