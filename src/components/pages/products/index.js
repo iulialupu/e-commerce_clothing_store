@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { fetchProducts } from "../../../actions";
 
 import Filters from "./Filters";
 import SortedBy from "./SortedBy";
@@ -6,7 +9,8 @@ import ProductsGrid from "./ProductsGrid";
 
 import "./Products.css";
 
-function Products() {
+function Products(props) {
+  console.log("props from index", props.history.location);
   return (
     <div className="products-wrapper">
       <div className="products">
@@ -20,4 +24,7 @@ function Products() {
   );
 }
 
-export default Products;
+export default connect(
+  null,
+  { fetchProducts }
+)(Products);

@@ -1,4 +1,4 @@
-export const ListOfCategories = [
+export const listOfCategories = [
   "Dresses",
   "Knitwere",
   "Shirts",
@@ -11,9 +11,9 @@ export const ListOfCategories = [
   "Trousers",
   "Leisureware"
 ];
-export const ListOfCollections = ["Boho", "Spring 2019", "Autumn 2018"];
+export const listOfCollections = ["Boho", "Spring 2019", "Autumn 2018"];
 
-export const ListOfImageUrls = [
+export const listOfImageUrls = [
   "https://www.na-kd.com/globalassets/nakd_pu_belted_shirt_dress_black_1018-002145-0002_01j.jpg?ref=AD9F44EDC0&width=640",
   "https://www.na-kd.com/globalassets/nakd_folded_knitted_sweater_1100-000337-0260_r1.jpg?ref=07F7B4F6C8&width=640",
   "https://www.na-kd.com/globalassets/nakd_tie_neck_layered_sleeve_blouse_white_1017-000303-0001_01a.jpg?ref=49CEBD4576&width=640",

@@ -9,7 +9,7 @@ import bag from "../../img/bag.svg";
 import IconLink from "./IconLink";
 
 import Submenu from "./Submenu";
-import { ListOfCategories, ListOfCollections } from "../variables";
+import { listOfCategories, listOfCollections } from "../variables";
 
 class Header extends React.Component {
   constructor(props) {
@@ -81,8 +81,8 @@ class Header extends React.Component {
           </div>
         </nav>
 
-        <Submenu submenuItems={ListOfCategories} />
-        <Submenu submenuItems={ListOfCollections} />
+        <Submenu submenuItems={listOfCategories} />
+        <Submenu submenuItems={listOfCollections} />
       </div>
     );
   }

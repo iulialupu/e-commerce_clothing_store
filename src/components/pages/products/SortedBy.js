@@ -1,7 +1,12 @@
 import React from "react";
 
 function SortedBy() {
-  return <div className="sorted-by">SortedBy</div>;
+  return (
+    <div className="sorted-by">
+      <div>k</div>
+      SortedBy
+    </div>
+  );
 }
 
 export default SortedBy;
