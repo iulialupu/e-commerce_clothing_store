@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Footer.css";
 
@@ -11,25 +12,25 @@ const Footer = () => {
             <h4>Products</h4>
             <ul>
               <li>
-                <a href="#">Dresses</a>
+                <Link to="/">Dresses</Link>
               </li>
               <li>
-                <a href="#">Knitwere</a>
+                <Link to="/">Knitwere</Link>
               </li>
               <li>
-                <a href="#">Shirts</a>
+                <Link to="/">Shirts</Link>
               </li>
               <li>
-                <a href="#">Coats</a>
+                <Link to="/">Coats</Link>
               </li>
               <li>
-                <a href="#">Jeans</a>
+                <Link to="/">Jeans</Link>
               </li>
               <li>
-                <a href="#">Skirts</a>
+                <Link to="/">Skirts</Link>
               </li>
               <li>
-                <a href="#">Tops</a>
+                <Link to="/">Tops</Link>
               </li>
             </ul>
           </div>
@@ -38,19 +39,19 @@ const Footer = () => {
             <h4>Information</h4>
             <ul>
               <li>
-                <a href="#">About Us</a>
+                <Link to="/">About Us</Link>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
+                <Link to="/">Privacy Policy</Link>
               </li>
               <li>
-                <a href="#">Affiliates</a>
+                <Link to="/">Affiliates</Link>
               </li>
               <li>
-                <a href="#">Stores</a>
+                <Link to="/">Stores</Link>
               </li>
               <li>
-                <a href="#">Join Our Team</a>
+                <Link to="/">Join Our Team</Link>
               </li>
             </ul>
           </div>
@@ -59,22 +60,22 @@ const Footer = () => {
             <h4>Help</h4>
             <ul>
               <li>
-                <a href="#">FAQ</a>
+                <Link to="/">FAQ</Link>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link to="/">Contact Us</Link>
               </li>
               <li>
-                <a href="#">Delivery</a>
+                <Link to="/">Delivery</Link>
               </li>
               <li>
-                <a href="#">Track Your Order</a>
+                <Link to="/">Track Your Order</Link>
               </li>
               <li>
-                <a href="#">Terms & Conditions</a>
+                <Link to="/">Terms & Conditions</Link>
               </li>
               <li>
-                <a href="#">Ethical Standarts</a>
+                <Link to="/">Ethical Standarts</Link>
               </li>
             </ul>
           </div>
@@ -83,19 +84,19 @@ const Footer = () => {
             <h4>Follow Us</h4>
             <ul>
               <li>
-                <a href="#">Instagram</a>
+                <Link to="/">Instagram</Link>
               </li>
               <li>
-                <a href="#">Twitter</a>
+                <Link to="/">Twitter</Link>
               </li>
               <li>
-                <a href="#">Facebook</a>
+                <Link to="/">Facebook</Link>
               </li>
               <li>
-                <a href="#">Snapchat</a>
+                <Link to="/">Snapchat</Link>
               </li>
               <li>
-                <a href="#">Tumblr</a>
+                <Link to="/">Tumblr</Link>
               </li>
             </ul>
           </div>
@@ -114,9 +115,8 @@ const Footer = () => {
           </a>
           . Images from the Spring Collection Section can be found{" "}
           <a href="https://www.vogue.ru/collection/spring_summer2018/resort/moskva/i_am/#gallery1/959197">
-            here
+            here.
           </a>
-          .
         </div>
       </div>
     </footer>
