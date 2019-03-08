@@ -1,11 +1,12 @@
-body {
+.products-wrapper {
   background-color: var(--grey1);
+  padding: 15px 0 40px;
 }
 .products {
   display: flex;
   max-width: 1100px;
   justify-items: center;
-  margin: 15px auto 40px;
+  margin: 0 auto;
 }
 .sorted-and-products-wrapper {
   flex: 75%;
@@ -61,12 +62,12 @@ body {
 .product-card .product-name {
   display: block;
   font-size: 1.3rem;
-  color: var(--grey3);
+  color: var(--grey4);
 }
 .product-card .price {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
   font-style: italic;
-  color: var(--grey4);
+  color: var(--grey5);
 }

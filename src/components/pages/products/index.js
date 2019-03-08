@@ -8,11 +8,13 @@ import "./Products.css";
 
 function Products() {
   return (
-    <div className="products">
-      <Filters />
-      <div className="sorted-and-products-wrapper">
-        <SortedBy />
-        <ProductsGrid />
+    <div className="products-wrapper">
+      <div className="products">
+        <Filters />
+        <div className="sorted-and-products-wrapper">
+          <SortedBy />
+          <ProductsGrid />
+        </div>
       </div>
     </div>
   );

@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import ProductCard from "./ProductCard";
 import { fetchProducts } from "../../../actions";
 
 function ProductsGrid(props) {
+  console.log("products grid props", props);
   React.useEffect(() => {
     props.fetchProducts();
+    console.log("fetching");
   }, []);
 
   return (
@@ -26,7 +29,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchProducts }
-)(ProductsGrid);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchProducts }
+  )(ProductsGrid)
+);
