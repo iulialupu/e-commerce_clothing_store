@@ -2,8 +2,9 @@ import React from "react";
 
 const DeleteBtn = props => {
   return (
-    <button className="delete-filter" onClick={() => props.handleClick()}>
-      x
+    <button className="delete-btn" onClick={() => props.handleClick()}>
+      <div className="line" />
+      <div className="line" />
     </button>
   );
 };

@@ -51,10 +51,12 @@ h2 {
 h3 {
   font-size: 1.8rem;
   padding-bottom: 0.8rem;
+  color: var(--grey3);
 }
 h4 {
   font-size: 1.5rem;
   padding-bottom: 0.7rem;
+  color: var(--grey3);
 }
 
 p {
@@ -190,6 +192,33 @@ section {
   }
 }
 
+/* ----- Delete Button ----- */
+.delete-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+}
+.delete-btn .line {
+  width: 12px;
+  height: 1px;
+  background-color: var(--grey4);
+  display: block;
+  position: relative;
+  top: -2;
+}
+.delete-btn .line:first-of-type {
+  transform: rotate(45deg) translate(2px, -5px);
+  transition: transform 0.3s;
+}
+.delete-btn .line:last-of-type {
+  transform: rotate(-45deg) translate(6px, 1px);
+  transition: transform 0.3s;
+}
+.delete-btn:hover .line {
+  transform: rotate(0) translate(6px, -2px);
+}
 /* ******************************** BUTTONS END ****************************** */
 
 /* ################################################ MEDIA QUERIS ######################################### */

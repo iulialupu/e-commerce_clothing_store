@@ -1,6 +1,6 @@
 .products-wrapper {
   background-color: var(--grey1);
-  padding: 15px 0 40px;
+  padding: 25px 0 40px;
 }
 .products {
   display: flex;
@@ -40,7 +40,7 @@
 }
 
 .filters li.category {
-  margin: 1.3rem 0 0;
+  margin: 1.8rem 0 0;
   font-weight: bold;
 }
 .filters li.category > ul > li {
@@ -51,18 +51,18 @@
 }
 .filters li.category > ul > li:hover {
   color: var(--grey3);
-  border-left: 3px solid var(--grey3);
+  border-left: 3px solid var(--grey2);
 }
 .filters li.category > ul > li.active {
   color: var(--black);
-  border-left: 3px solid var(--black);
+  border-left: 3px solid var(--grey4);
 }
 
 /* Sorted By */
 .sorted-by {
-  padding: 16px 30px;
+  padding: 10px 30px;
   width: 100%;
-  height: 60px;
+  height: 46px;
   background-color: var(--transparent-white);
   border-bottom: var(--border-grey1);
   box-sizing: border-box;
@@ -74,17 +74,14 @@
   padding: 0 2rem 0 0;
 }
 .active-filter {
-  background-color: var(--grey1);
+  background-color: var(--grey2);
   padding: 0.4rem 1rem;
   margin: 0 1rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  color: var(--white);
 }
-.delete-filter {
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-  padding-left: 1.2rem;
+.sorted-by .delete-btn .line {
+  background-color: var(--white);
 }
 /* Products Grid */
 .products-grid {
