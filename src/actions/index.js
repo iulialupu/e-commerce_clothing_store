@@ -19,9 +19,9 @@ export const addFilter = filter => {
   };
 };
 
-export const removeFilter = filter => {
+export const removeFilter = key => {
   return {
     type: "REMOVE_FILTER",
-    payload: filter
+    payload: key
   };
 };

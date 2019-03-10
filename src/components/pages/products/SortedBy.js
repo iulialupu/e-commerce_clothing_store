@@ -8,23 +8,34 @@ function SortedBy({ filters }) {
     for (let key in filters) {
       switch (key) {
         case "isNew":
-          activeFiltersList = [...activeFiltersList, "New"];
+          activeFiltersList = [...activeFiltersList, { key, content: "New" }];
           break;
         case "inStock":
-          activeFiltersList = [...activeFiltersList, "In Stock"];
+          activeFiltersList = [
+            ...activeFiltersList,
+            { key, content: "In Stock" }
+          ];
           break;
         case "articles":
-          activeFiltersList = [...activeFiltersList, `${key}: ${filters[key]}`];
+          activeFiltersList = [
+            ...activeFiltersList,
+            { key, content: `${key}: ${filters[key]}` }
+          ];
           break;
         case "collections":
-          activeFiltersList = [...activeFiltersList, `${key}: ${filters[key]}`];
+          activeFiltersList = [
+            ...activeFiltersList,
+            { key, content: `${key}: ${filters[key]}` }
+          ];
           break;
         default:
           return activeFiltersList;
       }
     }
 
-    return activeFiltersList.map(item => <ActiveFilter content={item} />);
+    return activeFiltersList.map(item => (
+      <ActiveFilter filter={item} key={item.key} />
+    ));
   };
 
   return (
