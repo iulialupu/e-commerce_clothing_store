@@ -5,22 +5,19 @@ import {
   listOfCategories as listOfArticles,
   listOfCollections
 } from "../../variables";
+import { addFilter } from "../../../actions";
 
 function Filters() {
   const renderCategoryValues = (category, arr) => {
     return arr.map((categoryValue, index) => {
       console.log("a-", categoryValue);
       return (
-        <li className="category-value" key={index}>
-          <Link
-            to={{
-              pathname: "/products",
-              search: `?${category}=${categoryValue}`
-            }}
-          >
-            {" "}
-            {categoryValue}
-          </Link>
+        <li
+          className="category-value"
+          key={index}
+          onClick={() => addFilter({ [category]: categoryValue })}
+        >
+          {categoryValue}
         </li>
       );
     });
@@ -28,10 +25,11 @@ function Filters() {
 
   return (
     <aside className="filters">
+      <h3>Filters</h3>
       <ul>
-        <li className="category">
-          <Link to="products/new">See the Latest Articles</Link>
-        </li>
+        <li onClick={() => addFilter({ new: true })}>New In</li>
+
+        <li onClick={() => addFilter({ inStock: true })}>In Stock</li>
 
         <li className="category">
           Articles:
@@ -41,27 +39,6 @@ function Filters() {
         <li className="category">
           Collections:
           <ul>{renderCategoryValues("collections", listOfCollections)}</ul>
-        </li>
-
-        <li className="category">
-          Size:
-          <ul>
-            <li className="category-value">
-              <Link to={{ pathname: "/products", search: "?size=XS" }}>XS</Link>
-            </li>
-            <li className="category-value">
-              <Link to={{ pathname: "/products", search: "?size=S" }}>S</Link>
-            </li>
-            <li className="category-value">
-              <Link to={{ pathname: "/products", search: "?size=M" }}>M</Link>
-            </li>
-            <li className="category-value">
-              <Link to={{ pathname: "/products", search: "?size=L" }}>L</Link>
-            </li>
-            <li className="category-value">
-              <Link to={{ pathname: "/products", search: "?size=XL" }}>XL</Link>
-            </li>
-          </ul>
         </li>
       </ul>
     </aside>

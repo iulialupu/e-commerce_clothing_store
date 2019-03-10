@@ -6,10 +6,10 @@ import ProductCard from "./ProductCard";
 import { fetchProducts } from "../../../actions";
 
 function ProductsGrid(props) {
-  // console.log("products grid props", props);
+  console.log("products grid props", props);
   React.useEffect(() => {
     props.fetchProducts();
-    console.log("fetching");
+    console.log("fetching", props.products);
   }, []);
 
   return (
