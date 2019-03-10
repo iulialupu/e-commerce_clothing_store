@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import {
   listOfCategories as listOfArticles,
@@ -7,7 +7,9 @@ import {
 } from "../../variables";
 import { addFilter } from "../../../actions";
 
-function Filters() {
+function Filters(props) {
+  console.log("props from filters", props);
+
   const renderCategoryValues = (category, arr) => {
     return arr.map((categoryValue, index) => {
       console.log("a-", categoryValue);
@@ -15,7 +17,7 @@ function Filters() {
         <li
           className="category-value"
           key={index}
-          onClick={() => addFilter({ [category]: categoryValue })}
+          onClick={e => handleClick(e, { [category]: categoryValue })}
         >
           {categoryValue}
         </li>
@@ -23,13 +25,19 @@ function Filters() {
     });
   };
 
+  const handleClick = (e, filter) => {
+    console.log(filter);
+    e.target.classList.add("active");
+    props.addFilter(filter);
+  };
+
   return (
     <aside className="filters">
       <h3>Filters</h3>
       <ul>
-        <li onClick={() => addFilter({ new: true })}>New In</li>
+        <li onClick={e => handleClick(e, { new: true })}>New In</li>
 
-        <li onClick={() => addFilter({ inStock: true })}>In Stock</li>
+        <li onClick={e => handleClick(e, { inStock: true })}>In Stock</li>
 
         <li className="category">
           Articles:
@@ -45,4 +53,7 @@ function Filters() {
   );
 }
 
-export default Filters;
+export default connect(
+  null,
+  { addFilter }
+)(Filters);
