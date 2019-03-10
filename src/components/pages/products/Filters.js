@@ -8,11 +8,8 @@ import {
 import { addFilter } from "../../../actions";
 
 function Filters(props) {
-  console.log("props from filters", props);
-
   const renderCategoryValues = (category, arr) => {
     return arr.map((categoryValue, index) => {
-      console.log("a-", categoryValue);
       return (
         <li
           className="category-value"
@@ -39,8 +36,8 @@ function Filters(props) {
       <h3>Filters</h3>
       <ul>
         <li
-          onClick={() => handleClick({ new: true })}
-          className={props.filters.new ? "active" : null}
+          onClick={() => handleClick({ isNew: true })}
+          className={props.filters.isNew ? "active" : null}
         >
           New In
         </li>

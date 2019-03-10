@@ -16,7 +16,7 @@ function Products(props) {
       <div className="products">
         <Filters filters={props.filters} />
         <div className="sorted-and-products-wrapper">
-          <SortedBy />
+          <SortedBy filters={props.filters} />
           <ProductsGrid />
         </div>
       </div>
