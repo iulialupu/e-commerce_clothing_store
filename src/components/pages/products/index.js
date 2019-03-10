@@ -14,7 +14,7 @@ function Products(props) {
   return (
     <div className="products-wrapper">
       <div className="products">
-        <Filters />
+        <Filters filters={props.filters} />
         <div className="sorted-and-products-wrapper">
           <SortedBy />
           <ProductsGrid />
@@ -26,7 +26,7 @@ function Products(props) {
 
 const mapStateToProps = state => {
   return {
-    filters: Object.values(state.filters)
+    filters: state.filters
   };
 };
 

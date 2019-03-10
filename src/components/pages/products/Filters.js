@@ -17,7 +17,12 @@ function Filters(props) {
         <li
           className="category-value"
           key={index}
-          onClick={e => handleClick(e, { [category]: categoryValue })}
+          onClick={() => handleClick({ [category]: categoryValue })}
+          className={
+            props.filters[category] === categoryValue
+              ? "category-value active"
+              : "category-value"
+          }
         >
           {categoryValue}
         </li>
@@ -25,9 +30,7 @@ function Filters(props) {
     });
   };
 
-  const handleClick = (e, filter) => {
-    console.log(filter);
-    e.target.classList.add("active");
+  const handleClick = filter => {
     props.addFilter(filter);
   };
 
@@ -35,9 +38,19 @@ function Filters(props) {
     <aside className="filters">
       <h3>Filters</h3>
       <ul>
-        <li onClick={e => handleClick(e, { new: true })}>New In</li>
+        <li
+          onClick={() => handleClick({ new: true })}
+          className={props.filters.new ? "active" : null}
+        >
+          New In
+        </li>
 
-        <li onClick={e => handleClick(e, { inStock: true })}>In Stock</li>
+        <li
+          onClick={() => handleClick({ inStock: true })}
+          className={props.filters.inStock ? "active" : null}
+        >
+          In Stock
+        </li>
 
         <li className="category">
           Articles:
