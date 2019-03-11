@@ -16,13 +16,13 @@ function SortedBy({ filters }) {
             { key, content: "In Stock" }
           ];
           break;
-        case "articles":
+        case "article":
           activeFiltersList = [
             ...activeFiltersList,
             { key, content: `${key}: ${filters[key]}` }
           ];
           break;
-        case "collections":
+        case "collection":
           activeFiltersList = [
             ...activeFiltersList,
             { key, content: `${key}: ${filters[key]}` }

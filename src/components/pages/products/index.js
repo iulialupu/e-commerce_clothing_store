@@ -4,20 +4,44 @@ import { connect } from "react-redux";
 import Filters from "./Filters";
 import SortedBy from "./SortedBy";
 import ProductsGrid from "./ProductsGrid";
+import { fetchProducts } from "../../../actions";
 
 import "./Products.css";
 
 function Products(props) {
-  //   props.fetchProductsByFilter(search);
-  // }, []);
-  console.log("props from index", props.filters);
+  let search;
+  if (props.filters === {}) {
+    search = "";
+  } else {
+    let searchArr = [];
+    for (let key in props.filters) {
+      searchArr = [
+        ...searchArr,
+        `${key}=${
+          typeof props.filters[key] === "string"
+            ? props.filters[key].replace(" ", "%20")
+            : props.filters[key]
+        }`
+      ];
+    }
+    search = searchArr.join("&");
+  }
+
+  console.log("search = ", search);
+
+  React.useEffect(() => {
+    props.fetchProducts(search);
+    console.log("fetching", props.products);
+  }, [props.filters]);
+
+  console.log("props from index", props);
   return (
     <div className="products-wrapper">
       <div className="products">
         <Filters filters={props.filters} />
         <div className="sorted-and-products-wrapper">
           <SortedBy filters={props.filters} />
-          <ProductsGrid />
+          <ProductsGrid products={props.products} />
         </div>
       </div>
     </div>
@@ -26,8 +50,12 @@ function Products(props) {
 
 const mapStateToProps = state => {
   return {
-    filters: state.filters
+    filters: state.filters,
+    products: Object.values(state.products)
   };
 };
 
-export default connect(mapStateToProps)(Products);
+export default connect(
+  mapStateToProps,
+  { fetchProducts }
+)(Products);

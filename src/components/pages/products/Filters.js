@@ -51,12 +51,12 @@ function Filters(props) {
 
         <li className="category">
           Articles:
-          <ul>{renderCategoryValues("articles", listOfArticles)}</ul>
+          <ul>{renderCategoryValues("article", listOfArticles)}</ul>
         </li>
 
         <li className="category">
           Collections:
-          <ul>{renderCategoryValues("collections", listOfCollections)}</ul>
+          <ul>{renderCategoryValues("collection", listOfCollections)}</ul>
         </li>
       </ul>
     </aside>
