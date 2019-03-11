@@ -219,6 +219,24 @@ section {
 .delete-btn:hover .line {
   transform: rotate(0) translate(6px, -2px);
 }
+
+/* ----- Delete Button ----- */
+.wishlist-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+}
+.wishlist-btn img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.wishlist-btn.active img {
+  width: 20px;
+  height: 20px;
+}
 /* ******************************** BUTTONS END ****************************** */
 
 /* ################################################ MEDIA QUERIS ######################################### */

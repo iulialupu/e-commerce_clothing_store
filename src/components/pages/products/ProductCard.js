@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function ProductCard({ name, id, img, isNew, price, color }) {
+import AddWishlistBtn from "../../AddWishlistBtn";
+
+function ProductCard({ name, id, img, isNew, price }) {
   const [isHovered, setIsHovered] = React.useState(false);
   const handleOnMouseEnter = () => {
     setIsHovered(true);
@@ -9,6 +11,7 @@ function ProductCard({ name, id, img, isNew, price, color }) {
   const handleOnMouseLeave = () => {
     setIsHovered(false);
   };
+
   return (
     <Link
       to={`/product/${id}`}
@@ -16,6 +19,8 @@ function ProductCard({ name, id, img, isNew, price, color }) {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
+      {isNew ? <div className="new">New</div> : null}
+      {isHovered ? <AddWishlistBtn /> : null}
       <img src={!isHovered ? img[0] : img[1]} alt={name} />
       <span className="product-name">{name}</span>
       <span className="price">${price}</span>
