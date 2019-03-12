@@ -11,7 +11,7 @@
   --border-grey2: 0.5px solid var(--grey2);
   --border-grey3: 0.5px solid var(--grey3);
   --border-grey4: 0.5px solid var(--grey4);
-  --shadow: 0 0 9px 7px #f1f1f148;
+  --shadow: 0 0 9px 3px #a8a8a810;
 
   --btn-scale: 1.2;
 
@@ -209,11 +209,11 @@ section {
   top: -2;
 }
 .delete-btn .line:first-of-type {
-  transform: rotate(45deg) translate(2px, -5px);
+  transform: rotate(45deg) translate(3px, -6px);
   transition: transform 0.3s;
 }
 .delete-btn .line:last-of-type {
-  transform: rotate(-45deg) translate(6px, 1px);
+  transform: rotate(-45deg) translate(6px, 2px);
   transition: transform 0.3s;
 }
 .delete-btn:hover .line {
@@ -233,10 +233,7 @@ section {
   height: 18px;
   display: block;
 }
-.wishlist-btn.active img {
-  width: 20px;
-  height: 20px;
-}
+
 /* ******************************** BUTTONS END ****************************** */
 
 /* ################################################ MEDIA QUERIS ######################################### */

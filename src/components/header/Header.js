@@ -34,7 +34,7 @@ class Header extends React.Component {
   }
 
   handleScroll() {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 95) {
       this.setState({ isScrolled: true });
     } else {
       this.setState({ isScrolled: false });
