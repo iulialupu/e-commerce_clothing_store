@@ -3,6 +3,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 
 function ProductsGrid(props) {
+  console.log("props from grid", props);
   return (
     <main className="products-grid">
       {props.products.length === 0 && (

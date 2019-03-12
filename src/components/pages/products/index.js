@@ -1,14 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import Filters from "./Filters";
 import SortedBy from "./SortedBy";
 import ProductsGrid from "./ProductsGrid";
-import { fetchProducts } from "../../../actions";
+import { fetchFirstProducts, fetchRestProducts } from "../../../actions";
 
 import "./Products.css";
 
 function Products(props) {
+  const [count, setCount] = React.useState(1);
+
   let search;
   if (props.filters === {}) {
     search = "";
@@ -30,9 +33,15 @@ function Products(props) {
   console.log("search = ", search);
 
   React.useEffect(() => {
-    props.fetchProducts(search);
+    props.fetchFirstProducts(search);
     console.log("fetching", props.products);
   }, [props.filters]);
+
+  const fetchProducts = () => {
+    setCount(count + 1);
+    console.log("fetching rest", props.products);
+    fetchRestProducts(count, search);
+  };
 
   console.log("props from index", props);
   return (
@@ -41,7 +50,15 @@ function Products(props) {
         <Filters filters={props.filters} />
         <div className="sorted-and-products-wrapper">
           <SortedBy filters={props.filters} />
-          <ProductsGrid products={props.products} />
+
+          <InfiniteScroll
+            dataLength={props.products.length}
+            next={fetchProducts}
+            hasMore={true}
+            loader="Loading...1"
+          >
+            <ProductsGrid products={props.products} />
+          </InfiniteScroll>
         </div>
       </div>
     </div>
@@ -57,5 +74,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchProducts }
+  { fetchFirstProducts, fetchRestProducts }
 )(Products);
