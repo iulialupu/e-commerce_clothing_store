@@ -11,24 +11,29 @@
   max-width: 1600px;
   margin: auto;
   overflow-x: hidden;
-  margin: 30px 0 30px 0;
+  margin: 25px 0 25px 0;
   padding: 0 0 60px 0;
 }
 .promo-image {
-  height: 65vh;
   display: inline-block;
   object-fit: cover;
+  height: 60vh;
+  width: 73vw;
 }
+
 .promo-image .image-container {
-  width: 80vw;
+  width: 73vw;
   height: 100%;
   position: absolute;
   left: 0;
 }
+.promo-image .image-container img {
+  height: 100%;
+}
 
 .first-screen .text-box {
   display: inline-block;
-  top: 20vh;
+  top: 13vh;
   right: 0;
   z-index: 10;
   position: absolute;

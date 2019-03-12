@@ -15,14 +15,14 @@ class FirstScreen extends React.Component {
   render() {
     return (
       <section className="first-screen flex-center" ref={this.parent}>
-        <div className="promo-image" ref={this.image}>
+        <div className="promo-image">
           <Parallax
             stylePropriety="left"
             speed={0.15}
             childRef={this.image}
             parentRef={this.parent}
           >
-            <div className="image-container">
+            <div className="image-container" ref={this.image}>
               <img src={image} alt="Promo" />
             </div>
           </Parallax>
