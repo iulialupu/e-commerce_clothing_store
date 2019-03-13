@@ -13,17 +13,12 @@
 }
 /* *************** Filters *************** */
 .filters {
-  height: calc(100vh - 2rem - 24px);
+  height: calc(100vh - var(--nav-height));
   padding: 20px 40px;
   flex: 20%;
   background-color: var(--transparent-white);
   border: var(--border-grey2);
-  /* border-top: none;
-  border-bottom: none; */
   box-sizing: border-box;
-  position: -webkit-sticky;
-  position: sticky;
-  top: calc(2rem + 24px);
 }
 
 .filters li {

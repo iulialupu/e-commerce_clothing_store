@@ -14,6 +14,7 @@
   --shadow: 0 0 9px 3px #a8a8a810;
 
   --btn-scale: 1.2;
+  --nav-height: calc(2rem + 24px);
 
   font-size: 10px;
 }
@@ -88,6 +89,11 @@ section {
   height: 100%;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--nav-height);
+}
 /* ******************************** BUTTONS START ****************************** */
 .btn {
   font-size: calc(14px * var(--btn-scale));

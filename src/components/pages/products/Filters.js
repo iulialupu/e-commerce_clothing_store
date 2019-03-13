@@ -42,7 +42,9 @@ function Filters(props) {
         <div className="open-btn" onClick={() => setOpen(true)} />
       ) : null}
 
-      <aside className={isOpen ? "filters open" : "filters closed"}>
+      <aside
+        className={isOpen ? "filters sticky open" : "filters sticky closed"}
+      >
         {/* Button for media queries < 480px */}
         {isOpen ? <DeleteBtn handleClick={() => setOpen(false)} /> : null}
 
