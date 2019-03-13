@@ -1,7 +1,19 @@
 import React from "react";
 
-function Thumbnails() {
-  return <div className="thumbnails sticky flex-center">Thumbnails</div>;
+import Thumbnail from "./Thumbnail";
+
+function Thumbnails({ images }) {
+  console.log("thumbnails", images);
+  const renderThumbnails = () => {
+    return images.map((img, index) => {
+      return <Thumbnail key={index} url={img} index={index} />;
+    });
+  };
+  return (
+    <div className="thumbnails sticky flex-center">
+      <ul>{renderThumbnails()}</ul>
+    </div>
+  );
 }
 
 export default Thumbnails;

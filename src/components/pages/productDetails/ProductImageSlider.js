@@ -5,11 +5,12 @@ import ImageShowcase from "./ImageShowcase";
 
 import "./ProductDetails.css";
 
-function ProductImageSlider() {
+function ProductImageSlider({ images }) {
+  console.log(images);
   return (
     <div className="product-image-slider">
-      <Thumbnails />
-      <ImageShowcase />
+      <Thumbnails images={images} />
+      <ImageShowcase images={images} />
     </div>
   );
 }

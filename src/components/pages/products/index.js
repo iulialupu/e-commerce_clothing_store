@@ -37,10 +37,8 @@ function Products(props) {
 
   React.useEffect(() => {
     props.fetchProducts(search);
-    console.log("fetching", props.products);
   }, [props.filters]);
 
-  console.log("props from index", props);
   return (
     <div className="products-wrapper">
       <div className="products">

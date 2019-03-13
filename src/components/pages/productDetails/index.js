@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+
 import ProductImageSlider from "./ProductImageSlider";
 import ProductSpecifications from "./ProductSpecifications";
+import { fetchProductById } from "../../../actions";
 
-function ProductDetails() {
+function ProductDetails(props) {
+  const id = props.match.params.id;
+  const { fetchProductById, products } = props;
+
+  useEffect(() => {
+    fetchProductById(id);
+    console.log("fetching", id);
+  }, []);
+
   return (
     <main className="product-details">
-      <div className="product-wrapper">
-        <ProductImageSlider />
-        <ProductSpecifications />
-      </div>
+      {products[id] ? (
+        <div className="product-wrapper">
+          <ProductImageSlider images={products[id].img} />
+          <ProductSpecifications product={products[id]} />
+        </div>
+      ) : (
+        "Loading..."
+      )}
     </main>
   );
 }
+const mapStateToProps = state => ({
+  products: state.products
+});
 
-export default ProductDetails;
+export default connect(
+  mapStateToProps,
+  { fetchProductById }
+)(ProductDetails);

@@ -6,6 +6,12 @@ export const fetchProducts = search => async dispatch => {
   dispatch({ type: "FETCH_PRODUCTS", payload: response.data });
 };
 
+export const fetchProductById = id => async dispatch => {
+  const response = await products.get(`/products/${id}`);
+
+  dispatch({ type: "FETCH_PRODUCT_BY_ID", payload: response.data });
+};
+
 export const addFilter = filter => {
   return {
     type: "ADD_FILTER",
