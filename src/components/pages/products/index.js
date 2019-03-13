@@ -4,11 +4,17 @@ import { connect } from "react-redux";
 import Filters from "./Filters";
 import SortedBy from "./SortedBy";
 import ProductsGrid from "./ProductsGrid";
-import { fetchProducts } from "../../../actions";
+import { fetchProducts, addFilter } from "../../../actions";
 
 import "./Products.css";
 
 function Products(props) {
+  React.useEffect(() => {
+    if (props.location.state) {
+      props.addFilter(props.location.state);
+    }
+  }, []);
+
   let search;
   if (props.filters === {}) {
     search = "";
@@ -57,5 +63,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchProducts }
+  { fetchProducts, addFilter }
 )(Products);

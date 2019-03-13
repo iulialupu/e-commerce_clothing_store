@@ -92,6 +92,9 @@
 .new-arrivals-grid .text-box {
   grid-area: text;
 }
+.new-arrivals-grid .text-box .shop-now-btn {
+  z-index: 2;
+}
 .new-arrivals-grid .image-container {
   grid-area: img;
 }

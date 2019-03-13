@@ -28,7 +28,9 @@ function NewCollectionsSection() {
           />
           <h2>Spring Collection 2019</h2>
           <p>Rediscover yourself</p>
-          <ShopNowBtn />
+          <ShopNowBtn
+            to={{ pathname: "/products", state: { collection: "Spring 2019" } }}
+          />
         </div>
       </div>
     </section>

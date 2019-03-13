@@ -60,7 +60,11 @@ class Header extends React.Component {
 
                 <ul className="nav-menu flex-center">
                   <li>
-                    <Link to="/products">New Arrivals</Link>
+                    <Link
+                      to={{ pathname: "/products", state: { isNew: true } }}
+                    >
+                      New Arrivals
+                    </Link>
                   </li>
 
                   <li>

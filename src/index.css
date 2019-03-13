@@ -106,7 +106,7 @@ section {
 }
 .shop-now-btn .btn-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   text-align: left;
 }
 .shop-now-btn .arrow {
@@ -128,7 +128,7 @@ section {
   width: 2%;
   height: 100%;
   content: "";
-  z-index: 0;
+  z-index: -1;
   transition: width 0.4s ease-out;
 }
 .hover-fill-shop {

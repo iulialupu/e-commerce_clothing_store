@@ -19,7 +19,9 @@ function NewCollectionsSection() {
               dresses to sharp office wear. We have jeans in every fit, premium
               quality items and the latest fashion essentials.
             </p>
-            <ShopNowBtn />
+            <ShopNowBtn
+              to={{ pathname: "/products", state: { isNew: true } }}
+            />
           </div>
         </div>
       </div>
