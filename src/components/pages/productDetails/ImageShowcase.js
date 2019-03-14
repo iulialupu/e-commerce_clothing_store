@@ -22,24 +22,28 @@ function ImageShowcase({ images, i, handleScoll }) {
       document.documentElement.clientHeight ||
       document.body.clientHeight;
     const scrollAtHalfScreenHight = window.scrollY + screenHeight / 2;
-    const imagesCoordinates = [];
 
     for (let i = 0; i < arrImageNodes.length; i++) {
-      imagesCoordinates.push({
-        topCoord: arrImageNodes[i].offsetTop,
-        bottomCoord: arrImageNodes[i].offsetHeight + arrImageNodes[i].offsetTop
-      });
+      const topCoord = arrImageNodes[i].offsetTop;
+      const bottomCoord =
+        arrImageNodes[i].offsetHeight + arrImageNodes[i].offsetTop;
+
+      if (
+        topCoord < scrollAtHalfScreenHight &&
+        bottomCoord > scrollAtHalfScreenHight
+      ) {
+        console.log("id=", i);
+        console.log(
+          "top=",
+          topCoord,
+          "bottom=",
+          bottomCoord,
+          "half screen=",
+          scrollAtHalfScreenHight
+        );
+        return i;
+      }
     }
-
-    const activeImageCoords = imagesCoordinates.filter(
-      img =>
-        img.topCoord < scrollAtHalfScreenHight &&
-        img.bottomCoord > scrollAtHalfScreenHight
-    );
-
-    const id = imagesCoordinates.indexOf(activeImageCoords);
-    console.log(imagesCoordinates, scrollAtHalfScreenHight);
-    console.log("id-", id);
   });
 
   console.log(imageContainer.current, i);
