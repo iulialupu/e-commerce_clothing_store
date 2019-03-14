@@ -44,6 +44,9 @@ li.thumbnail {
   max-width: 70px;
   position: relative;
 }
+li.thumbnail a.active {
+  border: 2px solid black;
+}
 li.thumbnail a {
   position: absolute;
   top: 0;
@@ -63,12 +66,13 @@ li.thumbnail a:active + img {
 /* Image Showcase */
 .image-showcase {
   flex: 4;
-  overflow-y: sroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   flex-direction: column;
   padding: 0 20px var(--nav-height);
   border-right: var(--border-grey1);
+  /* scroll */
+  overflow-y: sroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 .img-container {
   height: 100vh;
