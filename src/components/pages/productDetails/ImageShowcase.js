@@ -1,10 +1,26 @@
 import React from "react";
 
-function ImageShowcase({ images }) {
+function ImageShowcase({ images, i }) {
+  const imageContainer = React.useRef(null);
+
+  React.useEffect(() => {
+    imageContainer.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+    console.log("SCROLLING");
+  });
+
+  console.log(imageContainer.current, i);
   const renderThumbnails = () => {
     return images.map((img, index) => {
       return (
-        <div id={index} key={index} className="img-container flex-center">
+        <div
+          id={index}
+          key={index}
+          className="img-container flex-center"
+          ref={index === i ? imageContainer : null}
+        >
           <img src={img} id={index} alt="" />
         </div>
       );
