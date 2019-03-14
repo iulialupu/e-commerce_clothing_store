@@ -64,6 +64,13 @@ p {
   padding-bottom: 1.2rem;
 }
 
+.price {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--grey5);
+}
 /* ********************************************************************** */
 section {
   padding: 80px 0;
@@ -164,11 +171,14 @@ section {
   background-color: var(--grey4);
   border: none;
   transition: background-color 0.3s;
-  width: calc(160px * var(--btn-scale));
+  max-width: calc(150px * var(--btn-scale));
+  min-width: calc(100px * var(--btn-scale));
 }
 .add-cart-btn .btn-content {
   color: var(--grey1);
   position: absolute;
+  width: 100%;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -226,7 +236,7 @@ section {
   transform: rotate(0) translate(6px, -2px);
 }
 
-/* ----- Delete Button ----- */
+/* ----- Wishlist Button ----- */
 .wishlist-btn {
   border: none;
   outline: none;
@@ -237,7 +247,7 @@ section {
 .wishlist-btn img {
   width: 18px;
   height: 18px;
-  display: block;
+  display: inline-block;
 }
 
 /* ******************************** BUTTONS END ****************************** */

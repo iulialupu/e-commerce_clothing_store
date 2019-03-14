@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ProductImageSlider from "./ProductImageSlider";
 import ProductSpecifications from "./ProductSpecifications";
 import { fetchProductById } from "../../../actions";
+import Newsletter from "../home/Newsletter";
 
 function ProductDetails(props) {
   const id = props.match.params.id;
@@ -24,6 +25,7 @@ function ProductDetails(props) {
       ) : (
         "Loading..."
       )}
+      <Newsletter />
     </main>
   );
 }
