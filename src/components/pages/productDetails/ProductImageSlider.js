@@ -9,6 +9,7 @@ function ProductImageSlider({ images }) {
   const [i, setIndex] = React.useState(0);
 
   console.log(images);
+
   const handleClick = (e, index) => {
     e.preventDefault();
     setIndex(index);

@@ -65,24 +65,24 @@ li.thumbnail a:active + img {
 
 /* Image Showcase */
 .image-showcase {
+  padding: 20px 0 60px;
   flex: 4;
   flex-direction: column;
-  padding: 0 20px var(--nav-height);
   border-right: var(--border-grey1);
   /* scroll */
   overflow-y: sroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
-.img-container {
+/* .img-container {
   height: 100vh;
   scroll-snap-align: center;
-}
+} */
 .image-showcase img {
   max-width: 320px;
-  margin: 20px auto;
-  height: auto;
   padding-top: var(--nav-height);
+  margin: 10px auto 10px;
+  height: auto;
   scroll-snap-align: center;
 }
 
