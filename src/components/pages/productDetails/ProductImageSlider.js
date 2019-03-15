@@ -6,7 +6,6 @@ import ImageShowcase from "./ImageShowcase";
 import "./ProductDetails.css";
 
 function ProductImageSlider({ images }) {
-  console.log(images);
   return (
     <div className="product-image-slider">
       <Thumbnails images={images} />

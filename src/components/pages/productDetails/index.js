@@ -9,8 +9,10 @@ import {
   changeActiveImageIndexScroll
 } from "../../../actions";
 import Newsletter from "../home/Newsletter";
+import RecomendedProductsSlider from "./RecomendedProductsSlider";
 
 function ProductDetails(props) {
+  console.log("index", props);
   const id = props.match.params.id;
   const {
     fetchProductById,
@@ -21,11 +23,12 @@ function ProductDetails(props) {
 
   useEffect(() => {
     fetchProductById(id);
-    console.log("fetching", id);
+    console.log("fetching id", id);
+
+    changeActiveImageIndexClick(0);
+    changeActiveImageIndexScroll(0);
     window.scrollTo(0, 0);
-    changeActiveImageIndexClick(null);
-    changeActiveImageIndexScroll(null);
-  }, []);
+  }, [id]);
 
   return (
     <main className="product-details">
@@ -37,6 +40,14 @@ function ProductDetails(props) {
       ) : (
         "Loading..."
       )}
+
+      <section className="see-also">
+        <h3>You may also like</h3>
+        {products[id] ? (
+          <RecomendedProductsSlider collection={products[id].collection} />
+        ) : null}
+      </section>
+
       <Newsletter />
     </main>
   );

@@ -8,6 +8,7 @@ import SpringCollectionSection from "./SpringCollectionSection";
 import ProductSlider from "./ProductsSlider";
 import { listOfCategories, listOfImageUrls } from "../../variables";
 import Newsletter from "./Newsletter";
+import CarouselProductItem from "./CarouselProductItem";
 
 function Home() {
   return (
@@ -15,10 +16,18 @@ function Home() {
       <FirstScreen />
       <SpringCollectionSection />
       <NewArrivalsSection />
-      <ProductSlider
-        listOfImageUrls={listOfImageUrls}
-        listofCategories={listOfCategories}
-      />
+
+      <ProductSlider>
+        {listOfImageUrls.map((url, index) => {
+          return (
+            <CarouselProductItem
+              imageUrl={url}
+              productCategory={listOfCategories[index]}
+            />
+          );
+        })}
+      </ProductSlider>
+
       <Newsletter />
     </main>
   );

@@ -39,3 +39,9 @@ export const changeActiveImageIndexClick = index => {
     payload: index
   };
 };
+
+export const fetchProductsByCollection = collection => async dispatch => {
+  const response = await products.get(`/products/?collection=${collection}`);
+
+  dispatch({ type: "FETCH_PRODUCTS_BY_COLLECTION", payload: response.data });
+};

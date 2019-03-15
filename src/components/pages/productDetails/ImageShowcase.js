@@ -23,7 +23,6 @@ function ImageShowcase({ images, imgIndex, changeActiveImageIndexScroll }) {
   });
 
   const scrollHandler = () => {
-    console.log("scrolling");
     const arrImageNodes = imageShowcase.current.childNodes;
     const screenHeight =
       window.innerHeight ||
@@ -42,25 +41,13 @@ function ImageShowcase({ images, imgIndex, changeActiveImageIndexScroll }) {
         topCoord < scrollAtHalfScreenHight &&
         bottomCoord > scrollAtHalfScreenHight
       ) {
-        console.log("id=", i);
-        console.log(
-          "top=",
-          topCoord,
-          "bottom=",
-          bottomCoord,
-          "half screen=",
-          scrollAtHalfScreenHight
-        );
         index = i;
         // imageMiddle = topCoord + (bottomCoord - topCoord) / 2;
       }
     }
 
-    if (index === undefined) {
-      index = null;
-    }
+    if (index === undefined) index = null;
     changeActiveImageIndexScroll(index);
-    console.log(index);
 
     // if (arrImageNodes) {
     //   imageShowcase.current.scrollTo(0, imageMiddle);

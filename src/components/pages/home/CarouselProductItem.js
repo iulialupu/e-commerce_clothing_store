@@ -6,7 +6,12 @@ const CarouselProductItem = ({ imageUrl, productCategory }) => {
     <div className="home-product-card">
       <img src={imageUrl} alt={productCategory} />
       <p>{productCategory}</p>
-      <ShopNowBtn />
+      <ShopNowBtn
+        to={{
+          pathname: "/products",
+          state: { article: productCategory }
+        }}
+      />
     </div>
   );
 };

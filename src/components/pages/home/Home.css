@@ -255,6 +255,10 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
   }
+  /* ************** Products Slider Section | 480px ~ 768px **************** */
+  .home-product-card {
+    max-width: 200px;
+  }
 }
 
 /* ---------------------------------------------------------  < 480px ----- */
