@@ -250,6 +250,16 @@ section {
   display: inline-block;
 }
 
+/* ----- Slider Buttons ------ */
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  color: var(--grey3);
+}
+.slick-arrow:hover .slick-next::before,
+.slick-arrow:hover .slick-arrow.slick-prev::before {
+  color: var(--grey4);
+}
+
 /* ******************************** BUTTONS END ****************************** */
 
 /* ################################################ MEDIA QUERIS ######################################### */

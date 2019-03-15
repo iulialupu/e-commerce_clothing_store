@@ -121,6 +121,7 @@
   font-size: 1.3rem;
   color: var(--grey4);
   padding-bottom: 0.2rem;
+  max-width: 220px;
 }
 .product-card .price {
   display: block;
@@ -188,6 +189,7 @@
   }
   .product-card .product-name {
     font-size: 1.1rem;
+    max-width: 200px;
   }
 }
 

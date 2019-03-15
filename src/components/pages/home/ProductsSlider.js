@@ -15,14 +15,15 @@ function ProductSlider(props) {
   };
 
   return (
-    <section className="products-slider">
+    <div className="products-slider">
       <Slider
         {...settings}
         slidesToShow={window.screen.availWidth > 800 ? 4 : 2}
+        {...props.settings}
       >
         {props.children}
       </Slider>
-    </section>
+    </div>
   );
 }
 

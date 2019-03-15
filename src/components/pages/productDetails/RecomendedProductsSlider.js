@@ -13,9 +13,8 @@ function RecomendedProductsSlider({
   React.useEffect(() => {
     fetchProductsByCollection(collection.replace(" ", "%20"));
   }, []);
-  console.log("collection = ", collection.replace(" ", "%20"));
   return (
-    <ProductSlider>
+    <ProductSlider settings={{ dots: false, arrows: true }}>
       {collectionProducts
         ? collectionProducts.map(product => (
             <ProductCard key={product.id} {...product} />

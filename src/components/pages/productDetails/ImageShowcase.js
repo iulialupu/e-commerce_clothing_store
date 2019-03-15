@@ -30,7 +30,6 @@ function ImageShowcase({ images, imgIndex, changeActiveImageIndexScroll }) {
       document.body.clientHeight;
     const scrollAtHalfScreenHight = window.scrollY + screenHeight / 2;
     let index;
-    let imageMiddle;
 
     for (let i = 0; i < arrImageNodes.length; i++) {
       const topCoord = arrImageNodes[i].offsetTop;
@@ -40,19 +39,12 @@ function ImageShowcase({ images, imgIndex, changeActiveImageIndexScroll }) {
       if (
         topCoord < scrollAtHalfScreenHight &&
         bottomCoord > scrollAtHalfScreenHight
-      ) {
+      )
         index = i;
-        // imageMiddle = topCoord + (bottomCoord - topCoord) / 2;
-      }
     }
 
     if (index === undefined) index = null;
     changeActiveImageIndexScroll(index);
-
-    // if (arrImageNodes) {
-    //   imageShowcase.current.scrollTo(0, imageMiddle);
-    //   console.log("middle=", imageMiddle);
-    // }
   };
 
   const renderThumbnails = () => {

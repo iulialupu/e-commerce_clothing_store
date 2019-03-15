@@ -42,10 +42,12 @@ function ProductDetails(props) {
       )}
 
       <section className="see-also">
-        <h3>You may also like</h3>
-        {products[id] ? (
-          <RecomendedProductsSlider collection={products[id].collection} />
-        ) : null}
+        <div className="container">
+          <h3>You may also like</h3>
+          {products[id] ? (
+            <RecomendedProductsSlider collection={products[id].collection} />
+          ) : null}
+        </div>
       </section>
 
       <Newsletter />

@@ -1,10 +1,7 @@
-main .product-details {
-  overflow: hidden;
-}
-/* .product-details {
-  padding: 25px 0;
+main.product-details {
+  padding: 15px 0;
   background-color: var(--grey1);
-} */
+}
 .product-wrapper {
   width: 100%;
   display: flex;
@@ -24,7 +21,7 @@ main .product-details {
 /* Thumbnails */
 .thumbnails {
   flex: 1;
-  height: calc(100vh - var(--nav-height));
+  min-height: calc(100vh - var(--nav-height));
   padding: 3rem, 1.8rem;
   width: 100%;
   border-right: var(--border-grey1);
@@ -58,9 +55,7 @@ li.thumbnail a {
   right: 0;
   bottom: 0;
 }
-/* li.thumbnail a:active + img {
-  border: 2px solid var(--grey1);
-} */
+
 .thumbnail img {
   width: 100%;
   box-sizing: border-box;
@@ -78,10 +73,6 @@ li.thumbnail a {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
-/* .img-container {
-  height: 100vh;
-  scroll-snap-align: center;
-} */
 .image-showcase img {
   max-width: 320px;
   padding-top: var(--nav-height);
@@ -93,8 +84,8 @@ li.thumbnail a {
 /* ******** Product Specifications ********* */
 .product-specifications {
   flex: 1;
-  height: calc(100vh - var(--nav-height));
-  padding: 40px;
+  min-height: calc(100vh - var(--nav-height));
+  padding: 4rem;
   box-sizing: border-box;
 }
 .product-specifications h4 {
@@ -214,9 +205,149 @@ label {
 .buttons-group .wishlist-btn:hover {
   background-color: var(--grey1);
 }
+
 /* ********  See Also Section ********* */
 .see-also {
+  padding-top: 150px;
+  background-color: var(--white);
 }
 .see-also h3 {
   text-align: center;
+}
+
+/* ################################################ MEDIA QUERIS ######################################### */
+/* ----------------------------------------------- 800px ~ 1080px ----- */
+@media only screen and (max-width: 1080px) and (min-width: 800px) {
+  .see-also .product-card img {
+    max-width: 170px;
+  }
+}
+
+/* -----------------------------------------------  < 768px ----- */
+@media only screen and (max-width: 768px) and (min-width: 768px) {
+  .product-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ******** Product Image Slider | 480px ~ 780px  ********* */
+  .product-image-slider {
+    flex: 1;
+    align-items: flex-start;
+    max-width: 96vw;
+    border-bottom: var(--border-grey1);
+  }
+
+  /* Thumbnails */
+  .thumbnails {
+    flex: 1;
+    padding: 3rem 1.8rem;
+    width: 100%;
+    border-left: var(--border-grey1);
+  }
+  li.thumbnail {
+    margin: 8px auto;
+  }
+
+  /* Image Showcase */
+  .image-showcase {
+    padding: 20px 30px 60px;
+    flex: 3;
+  }
+
+  .image-showcase img {
+    max-width: 320px;
+  }
+
+  /* ******** Product Specifications | 480px ~ 780px  ********* */
+  .product-specifications {
+    min-height: auto;
+    padding: 4rem;
+  }
+  .product-specifications h4 {
+    margin-top: 10%;
+  }
+
+  /* ********  See Also Section | 480px ~ 780px  ********* */
+  .see-also {
+    padding-top: 100px;
+  }
+  section.see-also .container {
+    width: 90%;
+  }
+}
+
+/* -----------------------------------------------  < 480px ----- */
+
+@media only screen and (max-width: 480px) {
+  main.product-details {
+    padding: 15px 0;
+  }
+  .product-wrapper {
+    flex-direction: column;
+    align-items: center;
+    border-bottom: none;
+  }
+  /* ******** Product Image Slider | < 480px  ********* */
+  .product-image-slider {
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Thumbnails */
+  .thumbnails {
+    flex: 1;
+    min-height: auto;
+    padding: 1.4rem;
+    width: 100%;
+    border-left: var(--border-grey1);
+    border-bottom: var(--border-grey1);
+  }
+  .thumbnails ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 30px;
+  }
+
+  li.thumbnail {
+    margin: 2px 10px;
+    max-width: 70px;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Image Showcase */
+  .image-showcase {
+    padding: 20px 0 60px;
+    flex: 1;
+    border-right: none;
+  }
+  .image-showcase img {
+    margin: 10px auto 10px;
+  }
+
+  /* ******** Product Specifications | < 480px   ********* */
+  .product-specifications {
+    min-height: auto;
+    width: 100%;
+    padding: 3rem;
+  }
+  .product-specifications h4 {
+    margin-top: 0;
+  }
+
+  /* ********  See Also Section | < 480px  ********* */
+  .see-also {
+    padding-top: 100px;
+  }
+  section.see-also .container {
+    width: 80%;
+  }
+
+  .see-also .product-card img {
+    max-width: 100px;
+  }
 }
