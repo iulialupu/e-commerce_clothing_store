@@ -45,7 +45,7 @@ li.thumbnail {
   position: relative;
 }
 li.thumbnail a + img {
-  transition: border 0.2s ease;
+  transition: border 0.25s ease;
 }
 li.thumbnail a.active + img {
   border: 2px solid var(--grey3);
