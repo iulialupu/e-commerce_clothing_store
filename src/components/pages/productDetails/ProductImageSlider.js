@@ -6,20 +6,11 @@ import ImageShowcase from "./ImageShowcase";
 import "./ProductDetails.css";
 
 function ProductImageSlider({ images }) {
-  const [i, setIndex] = React.useState(0);
-
   console.log(images);
-
-  const handleClick = (e, index) => {
-    e.preventDefault();
-    setIndex(index);
-  };
-
-  console.log(i);
   return (
     <div className="product-image-slider">
-      <Thumbnails images={images} handleClick={handleClick} />
-      <ImageShowcase images={images} i={i} />
+      <Thumbnails images={images} />
+      <ImageShowcase images={images} />
     </div>
   );
 }

@@ -25,3 +25,17 @@ export const removeFilter = key => {
     payload: key
   };
 };
+
+export const changeActiveImageIndexScroll = index => {
+  return {
+    type: "CHANGE_ACTIVE_IMAGE_SCROLL",
+    payload: index
+  };
+};
+
+export const changeActiveImageIndexClick = index => {
+  return {
+    type: "CHANGE_ACTIVE_IMAGE_CLICK",
+    payload: index
+  };
+};

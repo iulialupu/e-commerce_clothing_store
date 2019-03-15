@@ -2,17 +2,10 @@ import React from "react";
 
 import Thumbnail from "./Thumbnail";
 
-function Thumbnails({ images, handleClick }) {
+function Thumbnails({ images }) {
   const renderThumbnails = () => {
     return images.map((img, index) => {
-      return (
-        <Thumbnail
-          key={index}
-          url={img}
-          index={index}
-          handleClick={handleClick}
-        />
-      );
+      return <Thumbnail key={index} url={img} index={index} />;
     });
   };
   return (

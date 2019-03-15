@@ -44,8 +44,11 @@ li.thumbnail {
   max-width: 70px;
   position: relative;
 }
-li.thumbnail a.active {
-  border: 2px solid black;
+li.thumbnail a + img {
+  transition: border 0.2s ease;
+}
+li.thumbnail a.active + img {
+  border: 2px solid var(--grey3);
 }
 li.thumbnail a {
   position: absolute;
@@ -54,9 +57,9 @@ li.thumbnail a {
   right: 0;
   bottom: 0;
 }
-li.thumbnail a:active + img {
-  border: 2px solid black;
-}
+/* li.thumbnail a:active + img {
+  border: 2px solid var(--grey1);
+} */
 .thumbnail img {
   width: 100%;
   box-sizing: border-box;

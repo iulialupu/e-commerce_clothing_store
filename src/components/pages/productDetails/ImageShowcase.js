@@ -1,27 +1,37 @@
 import React from "react";
+import { connect } from "react-redux";
 
-function ImageShowcase({ images, i, handleScoll }) {
-  const imageContainer = React.useRef(null);
+import { changeActiveImageIndexScroll } from "../../../actions";
+
+function ImageShowcase({ images, imgIndex, changeActiveImageIndexScroll }) {
+  const image = React.useRef(null);
   const imageShowcase = React.useRef(null);
 
   React.useEffect(() => {
-    imageContainer.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-    console.log("SCROLLING");
+    if (image.current) {
+      image.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
   });
 
-  console.log(imageShowcase.current);
-  window.addEventListener("scroll", e => {
-    console.log(e, "sc");
-    console.log(imageShowcase.current.childNodes);
+  const scrollHandler = () => {
+    console.log("scrolling");
     const arrImageNodes = imageShowcase.current.childNodes;
     const screenHeight =
       window.innerHeight ||
       document.documentElement.clientHeight ||
       document.body.clientHeight;
     const scrollAtHalfScreenHight = window.scrollY + screenHeight / 2;
+    let index;
+    let imageMiddle;
 
     for (let i = 0; i < arrImageNodes.length; i++) {
       const topCoord = arrImageNodes[i].offsetTop;
@@ -41,12 +51,23 @@ function ImageShowcase({ images, i, handleScoll }) {
           "half screen=",
           scrollAtHalfScreenHight
         );
-        return i;
+        index = i;
+        // imageMiddle = topCoord + (bottomCoord - topCoord) / 2;
       }
     }
-  });
 
-  console.log(imageContainer.current, i);
+    if (index === undefined) {
+      index = null;
+    }
+    changeActiveImageIndexScroll(index);
+    console.log(index);
+
+    // if (arrImageNodes) {
+    //   imageShowcase.current.scrollTo(0, imageMiddle);
+    //   console.log("middle=", imageMiddle);
+    // }
+  };
+
   const renderThumbnails = () => {
     return images.map((img, index) => {
       return (
@@ -56,7 +77,7 @@ function ImageShowcase({ images, i, handleScoll }) {
           alt=""
           id={index}
           key={index}
-          ref={index === i ? imageContainer : null}
+          ref={index === imgIndex ? image : null}
         />
       );
     });
@@ -68,4 +89,11 @@ function ImageShowcase({ images, i, handleScoll }) {
   );
 }
 
-export default ImageShowcase;
+const mapStateToProps = state => ({
+  imgIndex: state.activeImageIndex.clickedImageIndex
+});
+
+export default connect(
+  mapStateToProps,
+  { changeActiveImageIndexScroll }
+)(ImageShowcase);

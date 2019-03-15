@@ -5,6 +5,7 @@ import AddCartBtn from "../../AddCartBtn";
 
 function ProductSpecifications(props) {
   const { name, description, fabric, color, size, price } = props.product;
+
   return (
     <div className="product-specifications sticky">
       <div className="product-specifications-content">
