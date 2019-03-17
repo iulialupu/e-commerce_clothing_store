@@ -18,7 +18,7 @@ function ProductDetails(props) {
     fetchProductById,
     changeActiveImageIndexClick,
     changeActiveImageIndexScroll,
-    products
+    product
   } = props;
 
   useEffect(() => {
@@ -32,10 +32,10 @@ function ProductDetails(props) {
 
   return (
     <main className="product-details">
-      {products[id] ? (
+      {product ? (
         <div className="product-wrapper">
-          <ProductImageSlider images={products[id].img} />
-          <ProductSpecifications product={products[id]} />
+          <ProductImageSlider images={product.img} />
+          <ProductSpecifications product={product} />
         </div>
       ) : (
         "Loading..."
@@ -44,8 +44,8 @@ function ProductDetails(props) {
       <section className="see-also">
         <div className="container">
           <h3>You may also like</h3>
-          {products[id] ? (
-            <RecomendedProductsSlider collection={products[id].collection} />
+          {product ? (
+            <RecomendedProductsSlider collection={product.collection} />
           ) : null}
         </div>
       </section>
@@ -54,8 +54,8 @@ function ProductDetails(props) {
     </main>
   );
 }
-const mapStateToProps = state => ({
-  products: state.products
+const mapStateToProps = (state, ownProps) => ({
+  product: state.products[ownProps.match.params.id]
 });
 
 export default connect(

@@ -1,12 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const AddCartBtn = () => {
+const AddCartBtn = ({ text, handleMouseOver }) => {
   return (
-    <Link to="/products" className="btn add-cart-btn flex-center">
-      <div className="btn-content">Add to cart</div>
+    <button
+      type="submit"
+      className="btn add-cart-btn flex-center"
+      onMouseEnter={handleMouseOver}
+    >
+      <div className="btn-content">{text}</div>
       <div className="hover-fill hover-fill-cart" />
-    </Link>
+    </button>
   );
 };
 
