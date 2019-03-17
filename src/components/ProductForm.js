@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import AddWishListBtn from "./AddWishlistBtn";
 import AddCartBtn from "./AddCartBtn";
 
-const ProductForm = ({ color, size, id }) => {
+const ProductForm = ({ color, size, id, price, name }) => {
   const [colorState, setColorState] = useState({
     touched: color.length === 1 ? true : false,
     value: color[0]
   });
   const [sizeState, setSizeState] = useState({
-    touched: color.length === 1 ? true : false,
+    touched: size.length === 1 ? true : false,
     value: size[0]
   });
   let [text, setText] = useState("Add to Cart");
@@ -18,7 +18,14 @@ const ProductForm = ({ color, size, id }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (colorState.touched && sizeState.value) {
-      console.log(colorState.value, sizeState.value);
+      console.log({
+        id: id,
+        name: name,
+        price: price,
+        color: colorState.value,
+        size: sizeState.value,
+        amount: 1
+      });
     }
   };
 
@@ -29,20 +36,20 @@ const ProductForm = ({ color, size, id }) => {
     if (e.target.name === "size") {
       setSizeState({ touched: true, value: e.target.value });
     }
-    console.log("change", e.target, colorState, sizeState);
   };
-  console.log("after", colorState, sizeState);
 
   const handleMouseOver = () => {
-    console.log("HOVER");
     if (colorState.touched && sizeState.touched) {
       setText("Add to Cart");
     } else if (!colorState.touched) {
       setText("Select a colour!");
     } else if (!sizeState.touched) {
       setText("Select size!");
-      console.log(text);
     }
+  };
+
+  const handleMouseLeave = () => {
+    setText("Add to Cart");
   };
 
   return (
@@ -91,6 +98,7 @@ const ProductForm = ({ color, size, id }) => {
         <AddCartBtn
           text={text || "Add to Cart"}
           handleMouseOver={handleMouseOver}
+          handleMouseLeave={handleMouseLeave}
         />
       </div>
     </form>

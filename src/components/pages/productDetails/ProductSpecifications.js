@@ -3,7 +3,7 @@ import React from "react";
 import ProductForm from "../../ProductForm";
 
 function ProductSpecifications(props) {
-  const { id, name, description, fabric, color, size, price } = props.product;
+  const { name, description, fabric, price } = props.product;
 
   return (
     <div className="product-specifications sticky">
@@ -18,7 +18,7 @@ function ProductSpecifications(props) {
           ))}{" "}
         </p>
 
-        <ProductForm id={id} color={color} size={size} />
+        <ProductForm product={props.product} />
       </div>
     </div>
   );

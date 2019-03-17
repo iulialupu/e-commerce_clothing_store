@@ -1,5 +1,5 @@
 main.product-details {
-  padding: 15px 0;
+  padding: 0;
   background-color: var(--grey1);
 }
 .product-wrapper {
@@ -110,57 +110,8 @@ li.thumbnail a {
 .fabric span:last-of-type:after {
   content: "";
 }
-.fabric,
-label {
+.fabric {
   font-size: 1.1rem;
-}
-label {
-  display: block;
-  padding-top: 0.7rem;
-}
-/* color */
-.color {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0.8rem;
-  margin-left: 0;
-  position: relative;
-  cursor: pointer;
-}
-.color input[type="radio"] {
-  opacity: 0;
-  width: 20px;
-  height: 20px;
-}
-.color label {
-  border: var(--border-grey1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  border-radius: 50%;
-}
-.color input[type="radio"]:checked + label {
-  background-color: #bbb;
-  /* border: var(--border-grey4); */
-  box-shadow: 0 0 1px 1px var(--grey4);
-}
-
-/* size */
-.size {
-  display: inline-block;
-  margin: 0.5rem 1.2rem;
-  margin-left: 0;
-}
-.size input[type="radio"] {
-  border: var(--border-grey1);
-  background-color: var(--transparent-white);
-  margin-right: 3px;
-  cursor: pointer;
 }
 
 /* buttons */
@@ -196,7 +147,7 @@ label {
   padding-right: 8px;
 }
 .buttons-group .wishlist-btn:after {
-  content: " Add to Wishlist";
+  content: "Add to Wishlist";
   display: inline-block;
   line-height: calc(36px * var(--btn-scale));
   position: relative;

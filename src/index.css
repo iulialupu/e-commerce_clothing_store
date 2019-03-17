@@ -259,8 +259,59 @@ section {
 .slick-arrow:hover .slick-arrow.slick-prev::before {
   color: var(--grey4);
 }
-
 /* ******************************** BUTTONS END ****************************** */
+
+/* ************************* PRODUCT FORM  START ***************************** */
+label {
+  display: block;
+  padding-top: 0.7rem;
+  font-size: 1.1rem;
+}
+/* color */
+.color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0.8rem;
+  margin-left: 0;
+  position: relative;
+  cursor: pointer;
+}
+.color input[type="radio"] {
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+}
+.color label {
+  border: var(--border-grey1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 50%;
+}
+.color input[type="radio"]:checked + label {
+  background-color: #bbb;
+  /* border: var(--border-grey4); */
+  box-shadow: 0 0 1px 1px var(--grey4);
+}
+
+/* size */
+.size {
+  display: inline-block;
+  margin: 0.5rem 1.2rem;
+  margin-left: 0;
+}
+.size input[type="radio"] {
+  border: var(--border-grey1);
+  background-color: var(--transparent-white);
+  margin-right: 3px;
+  cursor: pointer;
+}
+/* ************************* PRODUCT FORM  END ***************************** */
 
 /* ################################################ MEDIA QUERIS ######################################### */
 /* -----------------------------------------------  < 1240px ----- */
