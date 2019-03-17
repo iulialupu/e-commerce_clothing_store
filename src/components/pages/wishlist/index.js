@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-function Wishlist() {
-  return <main>Wishlist</main>;
+import WishlistItem from "./WishlistItem";
+import { removeWishlistItem, addToCart, fetchProducts } from "../../../actions";
+
+function Wishlist(props) {
+  const {
+    removeWishlistItem,
+    addToCart,
+    fetchProducts,
+    wishlistItems,
+    products
+  } = props;
+  console.log(props);
+
+  function convertToSearchString() {
+    return wishlistItems.map(item => `id=${item}`).join("&");
+  }
+  console.log(convertToSearchString());
+
+  useEffect(() => {
+    fetchProducts(convertToSearchString());
+  }, []);
+
+  return (
+    <main>
+      <WishlistItem />
+    </main>
+  );
 }
 
-export default Wishlist;
+const mapStateToProps = state => ({
+  wishlistItems: state.wishlist,
+  products: state.products
+});
+
+export default connect(
+  mapStateToProps,
+  { removeWishlistItem, addToCart, fetchProducts }
+)(Wishlist);

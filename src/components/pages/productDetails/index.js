@@ -12,7 +12,6 @@ import Newsletter from "../home/Newsletter";
 import RecomendedProductsSlider from "./RecomendedProductsSlider";
 
 function ProductDetails(props) {
-  console.log("index", props);
   const id = props.match.params.id;
   const {
     fetchProductById,
@@ -23,7 +22,6 @@ function ProductDetails(props) {
 
   useEffect(() => {
     fetchProductById(id);
-    console.log("fetching id", id);
 
     changeActiveImageIndexClick(0);
     changeActiveImageIndexScroll(0);

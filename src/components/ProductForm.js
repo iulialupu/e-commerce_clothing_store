@@ -1,24 +1,32 @@
-import React, { useState } from "react";
-// import { Field, reduxForm } from "redux-form";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
+import { addToCart } from "../actions";
 import AddWishListBtn from "./AddWishlistBtn";
 import AddCartBtn from "./AddCartBtn";
 
-const ProductForm = ({ color, size, id, price, name }) => {
+const ProductForm = props => {
+  const { color, size, id, price, name } = props.product;
+
   const [colorState, setColorState] = useState({
-    touched: color.length === 1 ? true : false,
+    touched: false,
     value: color[0]
   });
   const [sizeState, setSizeState] = useState({
-    touched: size.length === 1 ? true : false,
+    touched: false,
     value: size[0]
   });
   let [text, setText] = useState("Add to Cart");
 
-  const handleSubmit = e => {
+  useEffect(() => {
+    if (color.length === 1) setColorState({ touched: true, value: color[0] });
+    if (size.length === 1) setSizeState({ touched: true, value: size[0] });
+  }, []);
+
+  function handleSubmit(e) {
     e.preventDefault();
     if (colorState.touched && sizeState.value) {
-      console.log({
+      props.addToCart({
         id: id,
         name: name,
         price: price,
@@ -27,18 +35,18 @@ const ProductForm = ({ color, size, id, price, name }) => {
         amount: 1
       });
     }
-  };
+  }
 
-  const handleChange = e => {
+  function handleChange(e) {
     if (e.target.name === "color") {
       setColorState({ touched: true, value: e.target.value });
     }
     if (e.target.name === "size") {
       setSizeState({ touched: true, value: e.target.value });
     }
-  };
+  }
 
-  const handleMouseOver = () => {
+  function handleMouseOver() {
     if (colorState.touched && sizeState.touched) {
       setText("Add to Cart");
     } else if (!colorState.touched) {
@@ -46,11 +54,11 @@ const ProductForm = ({ color, size, id, price, name }) => {
     } else if (!sizeState.touched) {
       setText("Select size!");
     }
-  };
+  }
 
-  const handleMouseLeave = () => {
+  function handleMouseLeave() {
     setText("Add to Cart");
-  };
+  }
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
@@ -94,9 +102,9 @@ const ProductForm = ({ color, size, id, price, name }) => {
         ))}
       </div>
       <div className="buttons-group">
-        <AddWishListBtn />
+        <AddWishListBtn id={id} />
         <AddCartBtn
-          text={text || "Add to Cart"}
+          text={props.cartItems.hasOwnProperty(id) ? "Added to Cart" : text}
           handleMouseOver={handleMouseOver}
           handleMouseLeave={handleMouseLeave}
         />
@@ -105,21 +113,11 @@ const ProductForm = ({ color, size, id, price, name }) => {
   );
 };
 
-// const validate = formValues => {
-//   const errors = {};
+const mapStateToProps = state => ({
+  cartItems: state.cart
+});
 
-//   if (!formValues.color) {
-//     errors.color = "Select a colour";
-//   }
-//   if (!formValues.size) {
-//     errors.size = "Select a size";
-//   }
-//   return errors;
-// };
-
-// export default reduxForm({
-//   form: "ProductForm",
-//   validate
-// })(ProductForm);
-
-export default ProductForm;
+export default connect(
+  mapStateToProps,
+  { addToCart }
+)(ProductForm);

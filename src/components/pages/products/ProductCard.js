@@ -20,7 +20,7 @@ function ProductCard({ name, id, img, isNew, price }) {
       onMouseLeave={handleOnMouseLeave}
     >
       {isNew ? <div className="new">New</div> : null}
-      {isHovered ? <AddWishlistBtn /> : null}
+      {isHovered ? <AddWishlistBtn id={id} /> : null}
       <img src={!isHovered ? img[0] : img[1]} alt={name} />
       <span className="product-name">{name}</span>
       <span className="price">${price}</span>
