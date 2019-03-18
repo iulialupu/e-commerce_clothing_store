@@ -72,8 +72,8 @@ const ProductForm = props => {
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
-      <div className="grid-cell">
-        <label className="label" htmlFor="color">
+      <div className="form content">
+        <label className="grid-label" htmlFor="color">
           Color:
         </label>
 
@@ -91,10 +91,8 @@ const ProductForm = props => {
             </div>
           );
         })}
-      </div>
 
-      <div className="grid-cell">
-        <label className="label" htmlFor="size">
+        <label className="grid-label" htmlFor="size">
           Size:
         </label>
 

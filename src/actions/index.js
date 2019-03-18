@@ -3,7 +3,10 @@ import products from "../apis/products";
 export const fetchProducts = search => async dispatch => {
   const response = await products.get(`/products/?${search}`);
 
-  dispatch({ type: "FETCH_PRODUCTS", payload: response.data });
+  dispatch({
+    type: "FETCH_PRODUCTS",
+    payload: response.data
+  });
 };
 
 export const fetchProductById = id => async dispatch => {

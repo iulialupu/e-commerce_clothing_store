@@ -9,7 +9,7 @@
   --transparent-white: rgba(253, 253, 253, 0.932);
   --border-grey1: 1px solid var(--grey1);
   --border-grey2: 0.5px solid var(--grey2);
-  --border-grey3: 0.5px solid var(--grey3);
+  --border-grey3: 1px solid var(--grey3);
   --border-grey4: 0.5px solid var(--grey4);
   --shadow: 0 0 9px 3px #79797911;
 
@@ -358,7 +358,7 @@ label {
   width: 10px;
   border: var(--border-grey2);
   position: absolute;
-  top: 5px;
+  top: 6px;
   left: 0;
   right: 0;
   bottom: 6px;
@@ -366,6 +366,12 @@ label {
   border-radius: 50%;
 }
 /* ************************* PRODUCT FORM  END ***************************** */
+/* ************************* WISHLIST/CART GRID START ***************************** */
+.grid-cell {
+}
+.grid-label {
+}
+/* ************************* WISHLIST/CART GRID END ***************************** */
 
 /* ################################################ MEDIA QUERIS ######################################### */
 /* -----------------------------------------------  < 1240px ----- */
