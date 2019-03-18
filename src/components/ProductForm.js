@@ -19,8 +19,18 @@ const ProductForm = props => {
   let [text, setText] = useState("Add to Cart");
 
   useEffect(() => {
-    if (color.length === 1) setColorState({ touched: true, value: color[0] });
-    if (size.length === 1) setSizeState({ touched: true, value: size[0] });
+    if (color.length === 1) {
+      setColorState({ touched: true, value: color[0] });
+    } else {
+      setColorState({ touched: false, value: color[0] });
+    }
+    if (size.length === 1) {
+      setSizeState({ touched: true, value: size[0] });
+    } else {
+      {
+        setSizeState({ touched: false, value: size[0] });
+      }
+    }
   }, []);
 
   function handleSubmit(e) {
@@ -94,15 +104,15 @@ const ProductForm = props => {
               type="radio"
               name="size"
               value={size}
-              checked={colorState.value === color}
               onChange={e => handleChange(e)}
             />
+            <label className="size-custom-input" htmlFor={size} />
             <span>{size}</span>
           </div>
         ))}
       </div>
       <div className="buttons-group">
-        <AddWishListBtn id={id} />
+        <AddWishListBtn id={id} classProp="wishlist-btn-big" text="Add" />
         <AddCartBtn
           text={props.cartItems.hasOwnProperty(id) ? "Added to Cart" : text}
           handleMouseOver={handleMouseOver}

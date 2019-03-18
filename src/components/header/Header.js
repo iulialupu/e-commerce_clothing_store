@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./Header.css";
 import logo from "../../img/logo.svg";
@@ -78,8 +79,18 @@ class Header extends React.Component {
               </div>
 
               <div className="wishlist-and-cart-wrapper">
-                <IconLink link="wishlist" src={heart} alt="wishlist icon" />
-                <IconLink link="cart" src={bag} alt="shopping cart icon" />
+                <IconLink
+                  link="wishlist"
+                  src={heart}
+                  alt="wishlist icon"
+                  amount={this.props.wishlist.length}
+                />
+                <IconLink
+                  link="cart"
+                  src={bag}
+                  alt="shopping cart icon"
+                  amount={this.props.cart.length}
+                />
               </div>
             </div>
           </div>
@@ -92,4 +103,9 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  wishlist: state.wishlist,
+  cart: Object.values(state.cart)
+});
+
+export default connect(mapStateToProps)(Header);

@@ -13,18 +13,21 @@ function ProductCard({ name, id, img, isNew, price }) {
   };
 
   return (
-    <Link
-      to={`/product/${id}`}
+    <div
       className="product-card"
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
       {isNew ? <div className="new">New</div> : null}
-      {isHovered ? <AddWishlistBtn id={id} /> : null}
-      <img src={!isHovered ? img[0] : img[1]} alt={name} />
+      {isHovered ? (
+        <AddWishlistBtn id={id} classProp="wishlist-btn-small" />
+      ) : null}
+      <Link to={`/product/${id}`}>
+        <img src={!isHovered ? img[0] : img[1]} alt={name} />
+      </Link>
       <span className="product-name">{name}</span>
       <span className="price">${price}</span>
-    </Link>
+    </div>
   );
 }
 

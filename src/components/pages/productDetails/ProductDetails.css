@@ -131,31 +131,13 @@ li.thumbnail a {
   flex: 1;
 }
 .buttons-group .wishlist-btn {
-  border: var(--border-grey4);
-  font-size: calc(14px * var(--btn-scale));
-  line-height: calc(36px * var(--btn-scale));
-  height: calc(36px * var(--btn-scale));
-  max-width: calc(150px * var(--btn-scale));
-  min-width: calc(120px * var(--btn-scale));
-  display: inline-block;
-  position: relative;
   margin-right: 6px;
   margin-bottom: 10px;
   flex: 1;
 }
-.buttons-group .wishlist-btn img {
-  padding-right: 8px;
-}
-.buttons-group .wishlist-btn:after {
-  content: "Add to Wishlist";
-  display: inline-block;
-  line-height: calc(36px * var(--btn-scale));
-  position: relative;
-  top: calc(-3px * var(--btn-scale));
-}
-.buttons-group .wishlist-btn:hover {
-  background-color: var(--grey1);
-}
+
+/* .buttons-group .wishlist-btn:after { 
+} */
 
 /* ********  See Also Section ********* */
 .see-also {
@@ -164,6 +146,13 @@ li.thumbnail a {
 }
 .see-also h3 {
   text-align: center;
+}
+.see-also .product-card {
+  display: block;
+  margin: 0 auto;
+}
+.see-also .wishlist-btn-small {
+  display: none;
 }
 
 /* ################################################ MEDIA QUERIS ######################################### */

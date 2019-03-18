@@ -2,7 +2,7 @@
   --black: #2b2b2b;
   --white: #ffffff;
   --grey1: #f1f1f1;
-  --grey2: #b8b8b8;
+  --grey2: #c2c2c2;
   --grey3: #7e7e7e;
   --grey4: #535353;
   --grey5: #363636;
@@ -11,7 +11,7 @@
   --border-grey2: 0.5px solid var(--grey2);
   --border-grey3: 0.5px solid var(--grey3);
   --border-grey4: 0.5px solid var(--grey4);
-  --shadow: 0 0 9px 3px #a8a8a810;
+  --shadow: 0 0 9px 3px #79797911;
 
   --btn-scale: 1.2;
   --nav-height: calc(2rem + 24px);
@@ -242,15 +242,53 @@ section {
   outline: none;
   background: none;
   cursor: pointer;
-  padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+  padding: 0.4rem;
 }
 .wishlist-btn img {
   width: 18px;
   height: 18px;
   display: inline-block;
 }
+.wishlist-btn-small {
+  padding: 12px 11px 10px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  border-radius: 50%;
+  position: absolute;
+  right: 12px;
+  bottom: 50px;
+  z-index: 3;
+  box-shadow: var(--shadow);
+  transition: background-color 0.4s;
+}
+.wishlist-btn-small:hover {
+  background-color: var(--grey1);
+}
+.wishlist-btn-big {
+  border: var(--border-grey4);
+  font-size: calc(14px * var(--btn-scale));
+  line-height: calc(36px * var(--btn-scale));
+  height: calc(36px * var(--btn-scale));
+  max-width: calc(150px * var(--btn-scale));
+  min-width: calc(120px * var(--btn-scale));
+  display: inline-block;
+  position: relative;
+}
+.wishlist-btn-big img {
+  padding-right: 8px;
+}
+.wishlist-btn-big .btn-text {
+  display: inline-block;
+  line-height: calc(36px * var(--btn-scale));
+  position: relative;
+  top: calc(-3px * var(--btn-scale));
+}
+.wishlist-btn-big:hover {
+  background-color: var(--grey1);
+}
 
-/* ----- Slider Buttons ------ */
+/* ------- Slider Buttons ------- */
 .slick-arrow.slick-next::before,
 .slick-arrow.slick-prev::before {
   color: var(--grey3);
@@ -294,22 +332,38 @@ label {
   border-radius: 50%;
 }
 .color input[type="radio"]:checked + label {
-  background-color: #bbb;
-  /* border: var(--border-grey4); */
   box-shadow: 0 0 1px 1px var(--grey4);
 }
 
 /* size */
 .size {
   display: inline-block;
-  margin: 0.5rem 1.2rem;
+  margin: 0.5rem 1.4rem;
   margin-left: 0;
+  position: relative;
 }
 .size input[type="radio"] {
-  border: var(--border-grey1);
-  background-color: var(--transparent-white);
-  margin-right: 3px;
+  opacity: 0;
+  margin-right: 2px;
   cursor: pointer;
+}
+.size input[type="radio"]:checked + .size-custom-input {
+  background-color: var(--grey3);
+  border: var(--border-grey4);
+}
+.size-custom-input {
+  display: inline-block;
+  background-color: var(--grey1);
+  border-radius: 50%;
+  width: 10px;
+  border: var(--border-grey2);
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  z-index: -1;
+  border-radius: 50%;
 }
 /* ************************* PRODUCT FORM  END ***************************** */
 

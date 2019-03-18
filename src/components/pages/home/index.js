@@ -17,16 +17,18 @@ function Home() {
       <SpringCollectionSection />
       <NewArrivalsSection />
 
-      <ProductSlider>
-        {listOfImageUrls.map((url, index) => {
-          return (
-            <CarouselProductItem
-              imageUrl={url}
-              productCategory={listOfCategories[index]}
-            />
-          );
-        })}
-      </ProductSlider>
+      <section className="products-slider">
+        <ProductSlider>
+          {listOfImageUrls.map((url, index) => {
+            return (
+              <CarouselProductItem
+                imageUrl={url}
+                productCategory={listOfCategories[index]}
+              />
+            );
+          })}
+        </ProductSlider>
+      </section>
 
       <Newsletter />
     </main>

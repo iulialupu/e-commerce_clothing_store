@@ -129,6 +129,7 @@
   font-weight: bold;
   font-style: italic;
   color: var(--grey5);
+  max-width: 220px;
 }
 .product-card .new {
   background-color: var(--black);
@@ -137,16 +138,6 @@
   position: absolute;
   font-size: 1.2rem;
   z-index: 1;
-}
-.product-card .wishlist-btn {
-  padding: 1.2rem 1.1rem 1rem;
-  background-color: var(--grey1);
-  border-radius: 50%;
-  position: absolute;
-  right: 12px;
-  bottom: 50px;
-  z-index: 3;
-  box-shadow: var(--shadow);
 }
 
 /* ################################################ MEDIA QUERIS ######################################### */
