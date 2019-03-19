@@ -16,7 +16,7 @@ const AddCartBtn = props => {
   } = props;
 
   const btnText = wishlistItems.includes(id)
-    ? `${text}ed to Wishlist`
+    ? "Added to Wishlist"
     : `${text} to Wishlist`;
 
   function handleClick() {

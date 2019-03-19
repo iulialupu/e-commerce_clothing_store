@@ -6,7 +6,7 @@ import AddWishListBtn from "./AddWishlistBtn";
 import AddCartBtn from "./AddCartBtn";
 
 const ProductForm = props => {
-  const { color, size, id, price, name } = props.product;
+  const { color, size, id, price, name, img } = props.product;
 
   const [colorState, setColorState] = useState({
     touched: false,
@@ -31,13 +31,14 @@ const ProductForm = props => {
         setSizeState({ touched: false, value: size[0] });
       }
     }
-  }, []);
+  }, [id]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (colorState.touched && sizeState.value) {
+    if (colorState.touched && sizeState.touched) {
       props.addToCart({
         id: id,
+        img: [img[0], img[1]],
         name: name,
         price: price,
         color: colorState.value,
