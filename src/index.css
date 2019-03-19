@@ -148,7 +148,7 @@ section {
   background-color: var(--grey1);
 }
 .shop-now-btn:hover {
-  border: var(--border-grey3);
+  border: var(--border-grey4);
 }
 .shop-now-btn:hover .arrow {
   left: calc(45px * var(--btn-scale));
@@ -364,6 +364,14 @@ label {
   bottom: 6px;
   z-index: -1;
   border-radius: 50%;
+}
+
+/* buttons */
+.buttons-group {
+  margin-top: 10%;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: wrap;
 }
 /* ************************* PRODUCT FORM  END ***************************** */
 /* ************************* WISHLIST/CART GRID START ***************************** */

@@ -81,3 +81,17 @@ export const removeFromCart = id => {
     payload: id
   };
 };
+
+export const incrementAmount = id => {
+  return {
+    type: "INCREMENT_AMOUNT",
+    payload: id
+  };
+};
+
+export const decrementAmount = id => {
+  return {
+    type: "DECREMENT_AMOUNT",
+    payload: id
+  };
+};

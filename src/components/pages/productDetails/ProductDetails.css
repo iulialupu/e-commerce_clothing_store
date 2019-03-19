@@ -114,18 +114,15 @@ li.thumbnail a {
   font-size: 1.1rem;
 }
 
-/* buttons */
-.buttons-group {
-  margin-top: 10%;
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: wrap;
-}
-
 .product-specifications-content {
   max-width: calc(300px * var(--btn-scale));
   display: block;
   margin: 0 auto;
+}
+.buttons-group {
+  display: flex;
+  margin-top: 10%;
+  flex-flow: wrap;
 }
 .buttons-group .add-cart-btn {
   flex: 1;
@@ -135,9 +132,6 @@ li.thumbnail a {
   margin-bottom: 10px;
   flex: 1;
 }
-
-/* .buttons-group .wishlist-btn:after { 
-} */
 
 /* ********  See Also Section ********* */
 .see-also {

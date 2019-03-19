@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { removeFromCart } from "../../../actions";
+import {
+  removeFromCart,
+  incrementAmount,
+  decrementAmount
+} from "../../../actions";
 import WishlistItem from "../wishlist/WishlistItem";
 import "../wishlist/Wishlist.css";
 import AddWishlistBtn from "../../AddWishlistBtn";
 import GridCell from "../wishlist/GridCell";
 
-function Cart({ cart, removeFromCart }) {
+function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -26,7 +30,7 @@ function Cart({ cart, removeFromCart }) {
             <h4>{product.name}</h4>
           </GridCell>
           <GridCell label="Price:">
-            <div className="price">${product.price}</div>
+            <span className="price">$ {product.price}</span>
           </GridCell>
           <GridCell label="Colour:">
             <div
@@ -35,13 +39,28 @@ function Cart({ cart, removeFromCart }) {
             />
           </GridCell>
           <GridCell label="Quantity:">
-            <span>1</span>
+            <button
+              className="quantity-btn"
+              onClick={() => decrementAmount(product.id)}
+              disabled={product.amount == 1}
+            >
+              -
+            </button>
+            <span>{product.amount}</span>
+            <button
+              className="quantity-btn"
+              onClick={() => incrementAmount(product.id)}
+            >
+              +
+            </button>
           </GridCell>
           <GridCell label="Size:">
             <span>{product.size}</span>
           </GridCell>
           <GridCell label="Total:">
-            <span>0</span>
+            <span className="total">
+              $ {(product.price * product.amount).toFixed(2)}
+            </span>
           </GridCell>
         </div>
         <AddWishlistBtn
@@ -73,5 +92,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { removeFromCart }
+  { removeFromCart, incrementAmount, decrementAmount }
 )(Cart);
