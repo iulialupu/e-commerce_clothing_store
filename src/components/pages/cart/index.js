@@ -10,8 +10,18 @@ import WishlistItem from "../wishlist/WishlistItem";
 import "../wishlist/Wishlist.css";
 import AddWishlistBtn from "../../AddWishlistBtn";
 import GridCell from "../wishlist/GridCell";
+import Newsletter from "../home/Newsletter";
+import "./Cart.css";
 
 function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
+  const total = cart.length
+    ? parseFloat(
+        cart
+          .map(item => item.price * item.amount)
+          .reduce((total, item) => total + item)
+          .toFixed(2)
+      )
+    : 0;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -38,7 +48,7 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
               style={{ backgroundColor: product.color }}
             />
           </GridCell>
-          <GridCell label="Quantity:">
+          <GridCell>
             <button
               className="quantity-btn"
               onClick={() => decrementAmount(product.id)}
@@ -46,7 +56,7 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
             >
               -
             </button>
-            <span>{product.amount}</span>
+            <span>{` ${product.amount} `}</span>
             <button
               className="quantity-btn"
               onClick={() => incrementAmount(product.id)}
@@ -58,7 +68,7 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
             <span>{product.size}</span>
           </GridCell>
           <GridCell label="Total:">
-            <span className="total">
+            <span className="price">
               $ {(product.price * product.amount).toFixed(2)}
             </span>
           </GridCell>
@@ -73,16 +83,42 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
   };
 
   return (
-    <main className="cart">
-      <div className="wishlist-wrapper">
-        <h3>
-          You have {cart.length} {cart.length === 1 ? "item" : "items"} in your
-          cart
-        </h3>
+    <>
+      <main className="cart">
+        <div className="cart-page-wrapper">
+          <div className="cart-wrapper">
+            <h3>
+              {cart.length
+                ? `You have ${cart.length} ${
+                    cart.length === 1 ? "item" : "items"
+                  } in
+            your cart`
+                : null}
+            </h3>
+            {cart.length ? (
+              renderCartItems()
+            ) : (
+              <div style={{ textAlign: "center" }}>
+                You have no items in your bag
+              </div>
+            )}
+          </div>
 
-        {cart ? renderCartItems() : null}
-      </div>
-    </main>
+          <div className="order-details">
+            <h3>Order Summary</h3>
+            <div className="order-details-box">
+              <p>Order value</p>
+              <span>$ {total}</span>
+              <p>Delivery</p>
+              <span>Free</span>
+              <p className="total">Total</p>
+              <span className="total">$ {total}</span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Newsletter />
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 :root {
   --black: #2b2b2b;
   --white: #ffffff;
-  --grey1: #f1f1f1;
+  --grey1: #f5f5f5;
   --grey2: #c2c2c2;
   --grey3: #7e7e7e;
   --grey4: #535353;
@@ -58,6 +58,7 @@ h4 {
   font-size: 1.5rem;
   padding-bottom: 0.7rem;
   color: var(--grey3);
+  font-weight: normal;
 }
 
 p {

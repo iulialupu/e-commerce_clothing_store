@@ -8,6 +8,7 @@ import ProductDetails from "./pages/productDetails";
 import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Footer from "./footer/Footer";
+import NotFoundPage from "./NotFoundPage";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/product/:id" exact component={ProductDetails} />
           <Route path="/wishlist" exact component={Wishlist} />
           <Route path="/cart" exact component={Cart} />
+          <Route path="/" component={NotFoundPage} />
         </Switch>
         <Footer />
       </>
