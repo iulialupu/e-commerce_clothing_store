@@ -62,34 +62,40 @@ nav {
   margin: 0.5rem;
 }
 .nav-menu li:hover a {
-  color: var(--grey4);
-}
-.submenu {
-  display: none;
+  color: var(--grey5);
 }
 
-/* Submenu */
+/* SUBMENU */
 .submenu {
-  position: absolute;
+  position: fixed;
   z-index: 20;
-  grid-auto-columns: repeat(auto-fill, minmax(30%));
-  position: relative;
-  top: 30px;
-  max-width: 400px;
+  width: 100%;
   margin: auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.945);
+  border-top: var(--border-grey1);
+  border-bottom: var(--border-grey2);
+  transition: all 0.3s;
+}
+.submenu ul {
+  max-width: 500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 /* remove */
 .submenu li {
   display: inline-block;
   list-style-type: none;
-  margin: 0 4rem;
+  margin: 0.4rem 3.3rem;
 }
 .submenu li a {
+  font-size: 1.4rem;
   text-decoration: none;
   color: var(--grey3);
 }
 .submenu li:hover a {
-  color: var(--grey4);
+  color: var(--grey5);
 }
 
 /*  Nav Icons on the right */

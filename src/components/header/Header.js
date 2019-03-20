@@ -17,9 +17,13 @@ class Header extends React.Component {
     super(props);
 
     this.state = {
-      isScrolled: false
+      isScrolled: false,
+      shopIsOpen: false,
+      collectionsIsOpen: false
     };
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.navigation = React.createRef();
   }
 
   componentDidMount() {
@@ -42,10 +46,17 @@ class Header extends React.Component {
     }
   }
 
+  handleMouseLeave() {
+    this.setState({ shopIsOpen: false, collectionsIsOpen: false });
+  }
+
   render() {
     return (
       <div className="nav-wrapper">
-        <nav className={this.state.isScrolled ? "nav-small" : "nav-big"}>
+        <nav
+          className={this.state.isScrolled ? "nav-small" : "nav-big"}
+          ref={this.navigation}
+        >
           <div className="container">
             <div className="flex-center">
               <Link to="/" className="logo">
@@ -60,7 +71,7 @@ class Header extends React.Component {
                 </div>
 
                 <ul className="nav-menu flex-center">
-                  <li>
+                  <li onMouseOver={this.handleMouseLeave}>
                     <Link
                       to={{ pathname: "/products", state: { isNew: true } }}
                     >
@@ -68,11 +79,25 @@ class Header extends React.Component {
                     </Link>
                   </li>
 
-                  <li>
+                  <li
+                    onMouseOver={() =>
+                      this.setState({
+                        shopIsOpen: true,
+                        collectionsIsOpen: false
+                      })
+                    }
+                  >
                     <Link to="/products">Shop</Link>
                   </li>
 
-                  <li>
+                  <li
+                    onMouseOver={() =>
+                      this.setState({
+                        collectionsIsOpen: true,
+                        shopIsOpen: false
+                      })
+                    }
+                  >
                     <Link to="/products">Collections</Link>
                   </li>
                 </ul>
@@ -96,8 +121,22 @@ class Header extends React.Component {
           </div>
         </nav>
 
-        <Submenu submenuItems={listOfCategories} />
-        <Submenu submenuItems={listOfCollections} />
+        <Submenu
+          submenuItems={listOfCategories}
+          handleMouseLeave={this.handleMouseLeave}
+          isOpen={this.state.shopIsOpen}
+          navHeight={
+            this.navigation.current ? this.navigation.current.offsetHeight : 0
+          }
+        />
+        <Submenu
+          submenuItems={listOfCollections}
+          handleMouseLeave={this.handleMouseLeave}
+          isOpen={this.state.collectionsIsOpen}
+          navHeight={
+            this.navigation.current ? this.navigation.current.offsetHeight : 0
+          }
+        />
       </div>
     );
   }
