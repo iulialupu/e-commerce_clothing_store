@@ -3,7 +3,7 @@ import React from "react";
 import HoverImageLink from "../products/HoverImageLink";
 import DeleteBtn from "../../DeleteBtn";
 
-const WishlistItem = ({ id, img, name, children, removeItem }) => {
+const WishlistCartItem = ({ id, img, name, children, removeItem }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const handleOnMouseEnter = () => {
@@ -14,7 +14,7 @@ const WishlistItem = ({ id, img, name, children, removeItem }) => {
   };
 
   return (
-    <div className="wishlist-item">
+    <div className="wishlist-cart-item">
       <div
         className="wishlist-image"
         onMouseEnter={handleOnMouseEnter}
@@ -29,4 +29,4 @@ const WishlistItem = ({ id, img, name, children, removeItem }) => {
   );
 };
 
-export default WishlistItem;
+export default WishlistCartItem;

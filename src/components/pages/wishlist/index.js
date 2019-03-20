@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import GridCell from "./GridCell";
 import ProductForm from "../../ProductForm";
-import WishlistItem from "./WishlistItem";
+import WishlisCarttItem from "./WishlistCartItem";
 import Newsletter from "../home/Newsletter";
 import { fetchProducts, removeWishlistItem } from "../../../actions";
 import "./Wishlist.css";
@@ -29,7 +29,7 @@ function Wishlist(props) {
     return products
       .filter(product => wishlist.includes(product.id))
       .map(product => (
-        <WishlistItem
+        <WishlisCarttItem
           id={product.id}
           img={product.img}
           removeItem={removeWishlistItem}
@@ -43,7 +43,7 @@ function Wishlist(props) {
             </GridCell>
           </div>
           <ProductForm product={product} />
-        </WishlistItem>
+        </WishlisCarttItem>
       ));
   };
 

@@ -6,7 +6,7 @@ import {
   incrementAmount,
   decrementAmount
 } from "../../../actions";
-import WishlistItem from "../wishlist/WishlistItem";
+import WishlisCartItem from "../wishlist/WishlistCartItem";
 import "../wishlist/Wishlist.css";
 import AddWishlistBtn from "../../AddWishlistBtn";
 import GridCell from "../wishlist/GridCell";
@@ -30,7 +30,7 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
 
   const renderCartItems = () => {
     return cart.map(product => (
-      <WishlistItem
+      <WishlisCartItem
         id={product.id}
         img={product.img}
         removeItem={removeFromCart}
@@ -78,7 +78,7 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
           id={product.id}
           classProp="wishlist-btn-big"
         />
-      </WishlistItem>
+      </WishlisCartItem>
     ));
   };
 
