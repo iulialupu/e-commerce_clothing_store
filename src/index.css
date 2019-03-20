@@ -28,8 +28,8 @@ body,
   font-family: "Abel", sans-serif;
   color: var(--black);
   font-size: 1.6rem;
-  /* font-family: 'Playfair Display', serif;
-  font-family: 'Montserrat', sans-serif; */
+  /* font-family: "Playfair Display", serif; */
+  /* font-family: "Roboto", sans-serif; */
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,6 +63,7 @@ h4 {
 
 p {
   padding-bottom: 1.2rem;
+  line-height: 1.5;
 }
 
 .price {

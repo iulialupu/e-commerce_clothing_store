@@ -1,6 +1,6 @@
 main.product-details {
-  padding: 0;
-  background-color: var(--grey1);
+  padding: 20px 0 0;
+  background-color: var(--white);
 }
 .product-wrapper {
   width: 100%;
@@ -9,6 +9,7 @@ main.product-details {
   align-items: flex-start;
   background-color: var(--white);
   border-bottom: var(--border-grey2);
+  border-top: var(--border-grey2);
 }
 
 /* ******** Product Image Slider ********* */
@@ -25,7 +26,7 @@ main.product-details {
   padding: 3rem, 1.8rem;
   width: 100%;
   border-right: var(--border-grey2);
-  background-color: var(--transparent-white);
+  background-color: var(--white);
 }
 .thumbnails ul {
   display: flex;

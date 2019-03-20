@@ -1,6 +1,6 @@
 .products-wrapper {
   background-color: var(--white);
-  padding: 0 0 40px;
+  padding: 20px 0 40px;
 }
 .products {
   display: flex;
@@ -18,7 +18,6 @@
   flex: 20%;
   background-color: var(--transparent-white);
   border: var(--border-grey2);
-  border-top: none;
   box-sizing: border-box;
 }
 
@@ -63,7 +62,6 @@
   height: 46px;
   background-color: var(--white);
   border: var(--border-grey2);
-  border-top: none;
   border-left: none;
   box-sizing: border-box;
   display: flex;

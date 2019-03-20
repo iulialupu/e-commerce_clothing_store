@@ -66,7 +66,6 @@ main.wishlist h3 {
 }
 
 .wishlist-cart-item form {
-  /* margin-top: 30px; */
   z-index: 3;
   position: relative;
   display: flex;
@@ -93,7 +92,6 @@ main.wishlist .wishlist-cart-item .wishlist-btn {
   }
 
   main.wishlist .wishlist-grid {
-    display: grid;
     grid-template-columns: 3.7fr 1fr;
   }
 
@@ -121,7 +119,6 @@ main.wishlist .wishlist-cart-item .wishlist-btn {
   }
 
   main.wishlist .grid-cell .price {
-    text-align: right;
     padding-left: 20px;
   }
 
