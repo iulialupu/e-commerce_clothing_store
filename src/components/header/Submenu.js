@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Submenu(props) {
-  const { submenuItems, navHeight, isOpen, handleMouseLeave } = props;
+  const { submenuItems, navHeight, isOpen, handleMouseLeave, category } = props;
   const display = isOpen ? "block" : "none";
 
-  console.log(props);
   const renderSubmenu = () => {
     return submenuItems.map((item, index) => {
       return (
         <li key={index}>
-          <Link to="/products">{item}</Link>
+          <Link to={{ pathname: "/products", state: { [category]: item } }}>
+            {item}
+          </Link>
         </li>
       );
     });

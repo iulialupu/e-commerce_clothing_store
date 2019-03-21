@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import {
   removeFromCart,
   incrementAmount,
-  decrementAmount
+  decrementAmount,
+  clearCart
 } from "../../../actions";
 import WishlisCartItem from "../wishlist/WishlistCartItem";
 import "../wishlist/Wishlist.css";
@@ -12,8 +13,30 @@ import AddWishlistBtn from "../../AddWishlistBtn";
 import GridCell from "../wishlist/GridCell";
 import Newsletter from "../home/Newsletter";
 import "./Cart.css";
+import PayPalBtn from "./PayPalBtn";
 
-function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
+function Cart({
+  cart,
+  removeFromCart,
+  incrementAmount,
+  decrementAmount,
+  clearCart
+}) {
+  const [paymentStatus, setPaymentStaus] = useState(null);
+  const paymentText = getPaymentFeedback(paymentStatus);
+  function getPaymentFeedback(paymentStatus) {
+    switch (paymentStatus) {
+      case "success":
+        return "Your payment was successful!";
+      case "canceled":
+        return "You canceled the payment";
+      case "error":
+        return "Sorry, there was an error";
+      default:
+        return "";
+    }
+  }
+
   const total = cart.length
     ? parseFloat(
         cart
@@ -22,11 +45,26 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
           .toFixed(2)
       )
     : 0;
+
+  const onSuccess = payment => {
+    setPaymentStaus("success");
+    console.log("The payment was succeeded!", payment);
+    clearCart();
+  };
+
+  const onCancel = data => {
+    setPaymentStaus("canceled");
+    console.log("The payment was cancelled!", data);
+  };
+
+  const onError = err => {
+    setPaymentStaus("error");
+    console.log("Error!", err);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  console.log("cart props", cart);
 
   const renderCartItems = () => {
     return cart.map(product => (
@@ -52,7 +90,7 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
             <button
               className="quantity-btn"
               onClick={() => decrementAmount(product.id)}
-              disabled={product.amount == 1}
+              disabled={product.amount === 1}
             >
               -
             </button>
@@ -113,7 +151,15 @@ function Cart({ cart, removeFromCart, incrementAmount, decrementAmount }) {
               <span>Free</span>
               <p className="total">Total</p>
               <span className="total">$ {total}</span>
+              <PayPalBtn
+                total={total}
+                style={{ marginTop: "20px" }}
+                onError={onError}
+                onSuccess={onSuccess}
+                onCancel={onCancel}
+              />
             </div>
+            <p>{paymentText}</p>
           </div>
         </div>
       </main>
@@ -128,5 +174,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { removeFromCart, incrementAmount, decrementAmount }
+  { removeFromCart, incrementAmount, decrementAmount, clearCart }
 )(Cart);

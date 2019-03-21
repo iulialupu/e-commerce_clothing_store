@@ -54,7 +54,6 @@ function ImageShowcase({ images, imgIndex, changeActiveImageIndexScroll }) {
           src={img}
           id={index}
           alt=""
-          id={index}
           key={index}
           ref={index === imgIndex ? image : null}
         />

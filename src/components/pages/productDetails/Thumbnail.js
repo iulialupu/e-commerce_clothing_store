@@ -16,7 +16,7 @@ function Thumbnail({ index, url, changeActiveImageIndexClick, imgIndex }) {
         onClick={e => handleClick(e, index)}
         className={imgIndex === index ? "active" : null}
       />
-      <img src={url} />
+      <img src={url} alt="product" />
     </li>
   );
 }

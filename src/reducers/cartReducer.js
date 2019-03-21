@@ -25,6 +25,8 @@ export default (state = {}, action) => {
       };
     case "REMOVE_FROM_CART":
       return omit(state, action.payload);
+    case "CLEAR_CART":
+      return {};
     default:
       return state;
   }

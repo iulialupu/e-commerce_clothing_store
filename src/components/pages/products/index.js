@@ -9,43 +9,46 @@ import { fetchProducts, addFilter } from "../../../actions";
 import "./Products.css";
 
 function Products(props) {
-  React.useEffect(() => {
-    if (props.location.state) {
-      props.addFilter(props.location.state);
-    }
-  }, []);
-
-  let search;
-  if (props.filters === {}) {
-    search = "";
-  } else {
-    let searchArr = [];
-    for (let key in props.filters) {
-      searchArr = [
-        ...searchArr,
-        `${key}=${
-          typeof props.filters[key] === "string"
-            ? props.filters[key].replace(" ", "%20")
-            : props.filters[key]
-        }`
-      ];
-    }
-    search = searchArr.join("&");
-  }
-
-  console.log("search = ", search);
+  const { location, filters, addFilter, fetchProducts, products } = props;
 
   React.useEffect(() => {
-    props.fetchProducts(search);
-  }, [props.filters]);
+    if (location.state) {
+      addFilter(location.state);
+    }
+  }, [location.state]);
+
+  const getSearchTerm = () => {
+    let search;
+    if (filters === {}) {
+      search = "";
+    } else {
+      let searchArr = [];
+      for (let key in filters) {
+        searchArr = [
+          ...searchArr,
+          `${key}=${
+            typeof filters[key] === "string"
+              ? filters[key].replace(" ", "%20")
+              : filters[key]
+          }`
+        ];
+      }
+      search = searchArr.join("&");
+    }
+    return search;
+  };
+
+  React.useEffect(() => {
+    fetchProducts(getSearchTerm());
+  }, [filters]);
 
   return (
     <div className="products-wrapper">
       <div className="products">
-        <Filters filters={props.filters} />
+        <Filters filters={filters} />
         <div className="sorted-and-products-wrapper">
-          <SortedBy filters={props.filters} />
-          <ProductsGrid products={props.products} />
+          <SortedBy filters={filters} />
+          <ProductsGrid products={products} />
         </div>
       </div>
     </div>

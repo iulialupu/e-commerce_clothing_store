@@ -123,6 +123,7 @@ class Header extends React.Component {
 
         <Submenu
           submenuItems={listOfCategories}
+          category="article"
           handleMouseLeave={this.handleMouseLeave}
           isOpen={this.state.shopIsOpen}
           navHeight={
@@ -131,6 +132,7 @@ class Header extends React.Component {
         />
         <Submenu
           submenuItems={listOfCollections}
+          category="collection"
           handleMouseLeave={this.handleMouseLeave}
           isOpen={this.state.collectionsIsOpen}
           navHeight={

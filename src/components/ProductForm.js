@@ -27,9 +27,7 @@ const ProductForm = props => {
     if (size.length === 1) {
       setSizeState({ touched: true, value: size[0] });
     } else {
-      {
-        setSizeState({ touched: false, value: size[0] });
-      }
+      setSizeState({ touched: false, value: size[0] });
     }
   }, [id]);
 

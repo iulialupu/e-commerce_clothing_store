@@ -16,7 +16,6 @@ function Filters(props) {
     return arr.map((categoryValue, index) => {
       return (
         <li
-          className="category-value"
           key={index}
           onClick={() => handleFilterClick({ [category]: categoryValue })}
           className={
