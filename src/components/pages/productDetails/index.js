@@ -10,6 +10,7 @@ import {
 } from "../../../actions";
 import Newsletter from "../home/Newsletter";
 import RecomendedProductsSlider from "./RecomendedProductsSlider";
+import Loading from "../../Loading";
 
 function ProductDetails(props) {
   const id = props.match.params.id;
@@ -36,7 +37,7 @@ function ProductDetails(props) {
           <ProductSpecifications product={product} />
         </div>
       ) : (
-        "Loading..."
+        <Loading />
       )}
 
       <section className="see-also">
