@@ -1,10 +1,16 @@
 import React from "react";
+import { useSpring, animated } from "react-spring";
 
 import HoverImageLink from "../products/HoverImageLink";
 import DeleteBtn from "../../DeleteBtn";
 
 const WishlistCartItem = ({ id, img, name, children, removeItem }) => {
   const [isHovered, setIsHovered] = React.useState(false);
+  const props = useSpring({
+    opacity: 1,
+    transform: "translateY(0)",
+    from: { opacity: 0, transform: "translateY(-20px)" }
+  });
 
   const handleOnMouseEnter = () => {
     setIsHovered(true);
@@ -14,7 +20,7 @@ const WishlistCartItem = ({ id, img, name, children, removeItem }) => {
   };
 
   return (
-    <div className="wishlist-cart-item">
+    <animated.div className="wishlist-cart-item" style={props}>
       <div
         className="wishlist-image"
         onMouseEnter={handleOnMouseEnter}
@@ -25,7 +31,7 @@ const WishlistCartItem = ({ id, img, name, children, removeItem }) => {
       <div className="wishlist-item-content">{children}</div>
 
       <DeleteBtn handleClick={() => removeItem(id)} />
-    </div>
+    </animated.div>
   );
 };
 

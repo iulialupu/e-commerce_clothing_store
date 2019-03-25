@@ -1,10 +1,16 @@
 import React from "react";
+import { useSpring, animated } from "react-spring";
 
 import HoverImageLink from "./HoverImageLink";
 import AddWishlistBtn from "../../AddWishlistBtn";
 
 function ProductCard({ name, id, img, isNew, price }) {
   const [isHovered, setIsHovered] = React.useState(false);
+  const props = useSpring({
+    opacity: 1,
+    transform: "translateY(0)",
+    from: { opacity: 0, transform: "translateY(-20px)" }
+  });
 
   const handleOnMouseEnter = () => {
     setIsHovered(true);
@@ -14,7 +20,8 @@ function ProductCard({ name, id, img, isNew, price }) {
   };
 
   return (
-    <div
+    <animated.div
+      style={props}
       className="product-card"
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
@@ -27,7 +34,7 @@ function ProductCard({ name, id, img, isNew, price }) {
 
       <span className="product-name">{name}</span>
       <span className="price">${price}</span>
-    </div>
+    </animated.div>
   );
 }
 

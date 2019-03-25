@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { CSSTransition } from "react-transition-group";
 
 import GridCell from "./GridCell";
 import ProductForm from "../../ProductForm";
@@ -12,49 +11,36 @@ import "./Wishlist.css";
 function Wishlist(props) {
   const { fetchProducts, wishlist, products, removeWishlistItem } = props;
 
-  const [appearState, setAppearState] = React.useState(false);
-
   function convertToSearchString() {
     return wishlist.map(item => `id=${item}`).join("&");
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (wishlist.length > 0) {
       fetchProducts(convertToSearchString());
     }
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setAppearState(true);
   }, []);
 
   const renderWishlistItems = () => {
     return products
       .filter(product => wishlist.includes(product.id))
       .map(product => (
-        <CSSTransition
-          in={appearState}
-          appear={true}
-          timeout={300}
-          classNames="fade"
+        <WishlisCarttItem
+          id={product.id}
+          img={product.img}
+          removeItem={removeWishlistItem}
         >
-          <WishlisCarttItem
-            id={product.id}
-            img={product.img}
-            removeItem={removeWishlistItem}
-          >
-            <div className="wishlist-grid">
-              <GridCell>
-                <h4>{product.name}</h4>
-              </GridCell>
-              <GridCell>
-                <div className="price">${product.price}</div>
-              </GridCell>
-            </div>
-            <ProductForm product={product} />
-          </WishlisCarttItem>
-        </CSSTransition>
+          <div className="wishlist-grid">
+            <GridCell>
+              <h4>{product.name}</h4>
+            </GridCell>
+            <GridCell>
+              <div className="price">${product.price}</div>
+            </GridCell>
+          </div>
+          <ProductForm product={product} />
+        </WishlisCarttItem>
       ));
   };
 
