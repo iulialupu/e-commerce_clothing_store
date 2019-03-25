@@ -40,6 +40,7 @@ function Products(props) {
 
   React.useEffect(() => {
     fetchProducts(getSearchTerm());
+    window.scrollTo(0, 0);
   }, [filters]);
 
   return (

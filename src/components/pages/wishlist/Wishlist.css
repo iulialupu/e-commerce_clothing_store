@@ -59,6 +59,32 @@ main.cart h3 {
   align-self: flex-start;
   padding: 20px;
 }
+/* ______________ ANIMATIONS _____________ */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: all 300ms linear;
+}
+.fade-enter-done {
+  opacity: 1;
+}
+
+/* exit */
+/* .fade-exit {
+  opacity: 1;
+  height: auto;
+}
+.fade-exit.fade-exit-acive {
+  opacity: 0;
+  height: 0;
+  transition: opacity 1000ms linear;
+}
+.fade-exit-done {
+  height: 0;
+  display: none;
+} */
 
 /* ***************** WISHLIST PAGE ******************* */
 main.wishlist h3 {

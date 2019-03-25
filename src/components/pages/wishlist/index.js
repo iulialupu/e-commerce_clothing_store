@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { CSSTransition } from "react-transition-group";
 
 import GridCell from "./GridCell";
 import ProductForm from "../../ProductForm";
@@ -11,6 +12,8 @@ import "./Wishlist.css";
 function Wishlist(props) {
   const { fetchProducts, wishlist, products, removeWishlistItem } = props;
 
+  const [appearState, setAppearState] = React.useState(false);
+
   function convertToSearchString() {
     return wishlist.map(item => `id=${item}`).join("&");
   }
@@ -19,31 +22,39 @@ function Wishlist(props) {
     if (wishlist.length > 0) {
       fetchProducts(convertToSearchString());
     }
-  }, [wishlist]);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setAppearState(true);
   }, []);
 
   const renderWishlistItems = () => {
     return products
       .filter(product => wishlist.includes(product.id))
       .map(product => (
-        <WishlisCarttItem
-          id={product.id}
-          img={product.img}
-          removeItem={removeWishlistItem}
+        <CSSTransition
+          in={appearState}
+          appear={true}
+          timeout={300}
+          classNames="fade"
         >
-          <div className="wishlist-grid">
-            <GridCell>
-              <h4>{product.name}</h4>
-            </GridCell>
-            <GridCell>
-              <div className="price">${product.price}</div>
-            </GridCell>
-          </div>
-          <ProductForm product={product} />
-        </WishlisCarttItem>
+          <WishlisCarttItem
+            id={product.id}
+            img={product.img}
+            removeItem={removeWishlistItem}
+          >
+            <div className="wishlist-grid">
+              <GridCell>
+                <h4>{product.name}</h4>
+              </GridCell>
+              <GridCell>
+                <div className="price">${product.price}</div>
+              </GridCell>
+            </div>
+            <ProductForm product={product} />
+          </WishlisCarttItem>
+        </CSSTransition>
       ));
   };
 
