@@ -88,16 +88,22 @@
   padding: 10px 10px 60px;
   width: 100%;
   background-color: var(--white);
+  box-sizing: border-box;
+  min-height: calc(100vh - 2rem - 24px - 46px);
+  border-right: var(--border-grey2);
+  border-bottom: var(--border-grey2);
+}
+.products-grid > p {
+  padding-left: 20px;
+  font-size: 1.2rem;
+}
+.products-grid-items {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
   flex-basis: 220px;
-  box-sizing: border-box;
-  min-height: calc(100vh - 2rem - 24px - 46px);
-  border-right: var(--border-grey2);
-  border-bottom: var(--border-grey2);
 }
 
 /* *************** Product Card *************** */

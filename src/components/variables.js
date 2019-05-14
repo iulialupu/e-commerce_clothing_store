@@ -8,8 +8,6 @@ export const listOfCategories = [
   "Jackets",
   "Tops",
   "T-shirts",
-  "Trousers",
-  "Leisureware",
   "Pants"
 ];
 export const listOfCollections = ["Boho", "Spring 2019", "Autumn 2018"];
